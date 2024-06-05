@@ -1,0 +1,1814 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Non-Parametric Analysis},
+  pdfauthor={Endurance},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Non-Parametric Analysis}
+\author{Endurance}
+\date{2024-02-25}
+
+\begin{document}
+\maketitle
+
+\hypertarget{load-necessary-packages}{%
+\section{Load necessary packages}\label{load-necessary-packages}}
+
+Using the \texttt{library} function, load your packages e.g
+\texttt{library(package\_name)}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)   }\CommentTok{\# For data manipulation, plotting, and cleaning}
+\FunctionTok{library}\NormalTok{(broom)       }\CommentTok{\# For tidy statistical outputs}
+\FunctionTok{library}\NormalTok{(ggpubr)      }\CommentTok{\# For data visualization and data cleaning}
+\FunctionTok{library}\NormalTok{(randtests)   }\CommentTok{\# For testing randomness}
+\FunctionTok{library}\NormalTok{(BSDA)        }\CommentTok{\# For basic statistics and data analysis}
+\FunctionTok{library}\NormalTok{(ggplot2)     }\CommentTok{\# For basic plot visualization}
+\FunctionTok{library}\NormalTok{(dplyr)       }\CommentTok{\# For cleaner data manipulation}
+\FunctionTok{library}\NormalTok{(stats)       }\CommentTok{\# For statistical analysis}
+\FunctionTok{library}\NormalTok{(coin)        }\CommentTok{\# For analysing two sets of variable}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{q1}{%
+\section{Q1}\label{q1}}
+
+An experiment was done to compare four different methods of teaching the
+concept of percentage to sixth graders. Experimental units were 28
+classes which were randomly assigned to the four methods, seven classes
+per method. A 45 item test was given to all classes. The average test
+scores of the classes are summarized in the table below. Show an R print
+out of the analysis. What can you conclude? Case method: 14.59, 23.44,
+25.53, 18.15, 20.82, 14.06, 14.26 Formula method: 20.27, 26.84, 14.71,
+22.34, 19.49, 24.92, 20.20 Equation method: 27.82, 24.92, 28.68, 23.32,
+32.85, 33.90, 23.42 Unitary analysis method: 33.16, 26.93, 30.43, 36.43,
+37.04, 29.76, 33.88
+
+\hypertarget{solution}{%
+\subsection{Solution}\label{solution}}
+
+\textbf{Null Hypothesis (H0)}: The mean test scores are not
+significantly different across the teaching methods. \textbf{Alternative
+Hypothesis (Ha)}: There are significant differences in the mean test
+scores across the teaching methods. \textbf{Significance Level (α)}:
+0.025 (Adjusted for multiple comparisons)
+
+\hypertarget{load-data}{%
+\subsubsection{Load data}\label{load-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{case\_method }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{14.59}\NormalTok{, }\FloatTok{23.44}\NormalTok{, }\FloatTok{25.53}\NormalTok{, }\FloatTok{18.15}\NormalTok{, }\FloatTok{20.82}\NormalTok{, }\FloatTok{14.06}\NormalTok{, }\FloatTok{14.26}\NormalTok{)}
+\NormalTok{formula\_method }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{20.27}\NormalTok{, }\FloatTok{26.84}\NormalTok{, }\FloatTok{14.71}\NormalTok{, }\FloatTok{22.34}\NormalTok{, }\FloatTok{19.49}\NormalTok{, }\FloatTok{24.92}\NormalTok{, }\FloatTok{20.20}\NormalTok{)}
+\NormalTok{equation\_method }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{27.82}\NormalTok{, }\FloatTok{24.92}\NormalTok{, }\FloatTok{28.68}\NormalTok{, }\FloatTok{23.32}\NormalTok{, }\FloatTok{32.85}\NormalTok{, }\FloatTok{33.90}\NormalTok{, }\FloatTok{23.42}\NormalTok{)}
+\NormalTok{unitary\_analysis\_method }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{33.16}\NormalTok{, }\FloatTok{26.93}\NormalTok{, }\FloatTok{30.43}\NormalTok{, }\FloatTok{36.43}\NormalTok{, }\FloatTok{37.04}\NormalTok{, }\FloatTok{29.76}\NormalTok{, }\FloatTok{33.88}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{combine-the-data-into-a-data-frame}{%
+\subsubsection{Combine the data into a data
+frame}\label{combine-the-data-into-a-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Method =} \FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Case"}\NormalTok{, }\StringTok{"Formula"}\NormalTok{, }\StringTok{"Equation"}\NormalTok{, }\StringTok{"Unitary Analysis"}\NormalTok{), }\AttributeTok{each =} \DecValTok{7}\NormalTok{),}
+  \AttributeTok{Score =} \FunctionTok{c}\NormalTok{(case\_method, formula\_method, equation\_method, unitary\_analysis\_method)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{check-the-structure-of-the-data-frame}{%
+\subsubsection{Check the structure of the data
+frame}\label{check-the-structure-of-the-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    28 obs. of  2 variables:
+##  $ Method: chr  "Case" "Case" "Case" "Case" ...
+##  $ Score : num  14.6 23.4 25.5 18.1 20.8 ...
+\end{verbatim}
+
+\hypertarget{create-boxplot}{%
+\subsubsection{Create boxplot}\label{create-boxplot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Method, }\AttributeTok{y =}\NormalTok{ Score, }\AttributeTok{fill =}\NormalTok{ Method)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Comparison of Teaching Methods for Percentage Concept"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Teaching Method"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Test Score"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Non-Paramteric-Analysis_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\hypertarget{perform-anova-test}{%
+\subsubsection{Perform ANOVA test}\label{perform-anova-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anova\_result }\OtherTok{\textless{}{-}} \FunctionTok{aov}\NormalTok{(Score }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Method, }\AttributeTok{data =}\NormalTok{ data)}
+\FunctionTok{summary}\NormalTok{(anova\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value   Pr(>F)    
+## Method       3  828.9  276.30   15.86 6.76e-06 ***
+## Residuals   24  418.1   17.42                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\hypertarget{decision-conclusion}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion}}
+
+\textbf{Decision}: Given that the probability (Pr) of obtaining the
+observed F value of 15.86 under the assumption that the null hypothesis
+is true is less than the chosen significance level (α), we reject the
+null hypothesis (Ho). \textbf{Conclusion}: Therefore, we conclude that
+there is a significant difference in the mean test scores among the
+different teaching methods.
+
+\hypertarget{tukey-post-hoc-test-for-pairwise-comparisons}{%
+\subsubsection{Tukey post-hoc test for pairwise
+comparisons}\label{tukey-post-hoc-test-for-pairwise-comparisons}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tukey\_test }\OtherTok{\textless{}{-}} \FunctionTok{TukeyHSD}\NormalTok{(anova\_result)}
+\FunctionTok{print}\NormalTok{(tukey\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Tukey multiple comparisons of means
+##     95% family-wise confidence level
+## 
+## Fit: aov(formula = Score ~ Method, data = data)
+## 
+## $Method
+##                                diff        lwr        upr     p adj
+## Equation-Case              9.151429   2.996815 15.3060424 0.0021555
+## Formula-Case               2.560000  -3.594614  8.7146138 0.6645763
+## Unitary Analysis-Case     13.825714   7.671100 19.9803281 0.0000119
+## Formula-Equation          -6.591429 -12.746042 -0.4368147 0.0326669
+## Unitary Analysis-Equation  4.674286  -1.480328 10.8288996 0.1833193
+## Unitary Analysis-Formula  11.265714   5.111100 17.4203281 0.0002025
+\end{verbatim}
+
+\hypertarget{q2}{%
+\section{Q2}\label{q2}}
+
+A study is conducted to investigate the relationship between cigarette
+smoking during pregnancy and the weights of newborn infants. The 15
+women smokers who make up the sample kept accurate records of the number
+of cigarettes smoked during their pregnancies and the weights of their
+children were recorded at birth. The data are given below: Women: 1, 2,
+3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 Cig. Per day: 12, 15, 35,
+21, 20, 17, 19, 46, 20, 25, 39, 25, 30, 27, 29 Baby's Weight: 7.7, 8.1,
+6.9, 8.2, 8.6, 8.3, 9.4, 7.8, 8.3, 5.2, 6.4, 7.9, 8.0
+
+By showing the R output of your analysis, determine whether level of
+cigarette smoking and weights of newborns are negatively correlated for
+all smoking mothers.
+
+\hypertarget{solution-1}{%
+\subsection{Solution}\label{solution-1}}
+
+\textbf{Null Hypothesis (H0)}: The true correlation between the number
+of cigarettes smoked per day during pregnancy and the weight of newborn
+infants is equal to 0. \textbf{Alternative Hypothesis (Ha)}: The true
+correlation between the number of cigarettes smoked per day during
+pregnancy and the weight of newborn infants is not equal to 0.
+\textbf{Significance Level (α)}: Since we're conducting a two-tailed
+test, we'll use an alpha level of 0.05 divided by 2 to account for both
+tails, resulting in α = 0.025.
+
+\hypertarget{load-data-1}{%
+\subsubsection{Load Data}\label{load-data-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{women }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+\NormalTok{cigarettes }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{35}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{46}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{39}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{29}\NormalTok{)}
+\NormalTok{weight }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{7.7}\NormalTok{, }\FloatTok{8.1}\NormalTok{, }\FloatTok{6.9}\NormalTok{, }\FloatTok{8.2}\NormalTok{, }\FloatTok{8.6}\NormalTok{, }\FloatTok{8.3}\NormalTok{, }\FloatTok{9.4}\NormalTok{, }\FloatTok{7.8}\NormalTok{, }\FloatTok{8.3}\NormalTok{, }\FloatTok{5.2}\NormalTok{, }\FloatTok{6.4}\NormalTok{, }\FloatTok{7.9}\NormalTok{, }\FloatTok{8.0}\NormalTok{, }\FloatTok{7.5}\NormalTok{, }\FloatTok{7.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-pearson-correlation-coefficient}{%
+\subsubsection{Calculate Pearson correlation
+coefficient}\label{calculate-pearson-correlation-coefficient}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{correlation }\OtherTok{\textless{}{-}} \FunctionTok{cor}\NormalTok{(cigarettes, weight)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{display-the-correlation-coefficient}{%
+\subsubsection{Display the correlation
+coefficient}\label{display-the-correlation-coefficient}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Correlation coefficient:"}\NormalTok{, correlation, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Correlation coefficient: -0.4125134
+\end{verbatim}
+
+\hypertarget{interpret-the-correlation-coefficient}{%
+\subsubsection{Interpret the correlation
+coefficient}\label{interpret-the-correlation-coefficient}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (correlation }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"There is a negative correlation between cigarette smoking during pregnancy and the weights of newborn infants."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (correlation }\SpecialCharTok{==} \DecValTok{0}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"There is no correlation between cigarette smoking during pregnancy and the weights of newborn infants."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"There is a positive correlation between cigarette smoking during pregnancy and the weights of newborn infants."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "There is a negative correlation between cigarette smoking during pregnancy and the weights of newborn infants."
+\end{verbatim}
+
+\hypertarget{q3}{%
+\section{Q3}\label{q3}}
+
+A study of early childhood education asked kindergarten students to
+retell two fairy tales that had be read to them earlier in the week. The
+10 children in the study included 5 high-progress readers and
+low-progress readers. Each child told two stories. Story 1 had been read
+to them; Story 2 had been read and also illustrated with pictures. An
+expert listened to a recording of the children and assigned a score for
+certain uses of language. Here are the data
+
+Child: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 Progress: high, high, high, high,
+high, low, low, low, low, low Story 1 Score: 0.55, 0.57, 0.72, 0.70,
+0.84, 0.40, 0.72, 0.00, 0.36, 0.55 Store 2 Score: 0.80, 0.82, 0.52,
+0.74, 0.89, 0.77, 0.49, 0.66, 0.28, 0.38
+
+Is there evidence that the scores of high-progress readers are higher
+than those of low-progress readers when they retell a story they have
+heard without pictures (Story 1)? Carry out the Wilcoxon rank sum test.
+State hypotheses and give the rank sum W for high progress readers, its
+P-value, and your conclusion. Do the t and Wilcoxon tests lead you to
+different conclusions?
+
+\hypertarget{solution-2}{%
+\subsection{Solution}\label{solution-2}}
+
+\textbf{Null Hypothesis (H0)}: There is no difference in the scores of
+high-progress readers and low-progress readers when retelling a story
+they have heard without pictures (Story 1). \textbf{Alternative
+Hypothesis (H1)}: The scores of high-progress readers are higher than
+those of low-progress readers when retelling a story they have heard
+without pictures (Story 1). \textbf{Significance Level (α)}: Typically
+set at 0.05.
+
+\hypertarget{load-data-2}{%
+\subsubsection{Load data}\label{load-data-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{progress }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"high"}\NormalTok{, }\StringTok{"high"}\NormalTok{, }\StringTok{"high"}\NormalTok{, }\StringTok{"high"}\NormalTok{, }\StringTok{"high"}\NormalTok{, }\StringTok{"low"}\NormalTok{, }\StringTok{"low"}\NormalTok{, }\StringTok{"low"}\NormalTok{, }\StringTok{"low"}\NormalTok{, }\StringTok{"low"}\NormalTok{)}
+\NormalTok{story1\_score }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.55}\NormalTok{, }\FloatTok{0.57}\NormalTok{, }\FloatTok{0.72}\NormalTok{, }\FloatTok{0.70}\NormalTok{, }\FloatTok{0.84}\NormalTok{, }\FloatTok{0.40}\NormalTok{, }\FloatTok{0.72}\NormalTok{, }\FloatTok{0.00}\NormalTok{, }\FloatTok{0.36}\NormalTok{, }\FloatTok{0.55}\NormalTok{)}
+\NormalTok{story2\_score }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.80}\NormalTok{, }\FloatTok{0.82}\NormalTok{, }\FloatTok{0.52}\NormalTok{, }\FloatTok{0.74}\NormalTok{, }\FloatTok{0.89}\NormalTok{, }\FloatTok{0.77}\NormalTok{, }\FloatTok{0.49}\NormalTok{, }\FloatTok{0.66}\NormalTok{, }\FloatTok{0.28}\NormalTok{, }\FloatTok{0.38}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-a-data-frame}{%
+\subsubsection{Create a data frame}\label{create-a-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Child =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\AttributeTok{Progress =}\NormalTok{ progress, }\AttributeTok{Story1\_Score =}\NormalTok{ story1\_score, }\AttributeTok{Story2\_Score =}\NormalTok{ story2\_score)}
+\FunctionTok{print}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Child Progress Story1_Score Story2_Score
+## 1      1     high         0.55         0.80
+## 2      2     high         0.57         0.82
+## 3      3     high         0.72         0.52
+## 4      4     high         0.70         0.74
+## 5      5     high         0.84         0.89
+## 6      6      low         0.40         0.77
+## 7      7      low         0.72         0.49
+## 8      8      low         0.00         0.66
+## 9      9      low         0.36         0.28
+## 10    10      low         0.55         0.38
+\end{verbatim}
+
+\hypertarget{separate-the-scores-by-progress}{%
+\subsubsection{Separate the scores by
+progress}\label{separate-the-scores-by-progress}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{high\_progress }\OtherTok{\textless{}{-}}\NormalTok{ data[data}\SpecialCharTok{$}\NormalTok{Progress }\SpecialCharTok{==} \StringTok{"high"}\NormalTok{, }\StringTok{"Story1\_Score"}\NormalTok{]}
+\NormalTok{low\_progress }\OtherTok{\textless{}{-}}\NormalTok{ data[data}\SpecialCharTok{$}\NormalTok{Progress }\SpecialCharTok{==} \StringTok{"low"}\NormalTok{, }\StringTok{"Story1\_Score"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{perform-wilcoxon-rank-sum-test}{%
+\subsubsection{Perform Wilcoxon rank sum
+test}\label{perform-wilcoxon-rank-sum-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wilcox\_result }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(high\_progress, low\_progress, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{, }\AttributeTok{exact =} \ConstantTok{FALSE}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(wilcox\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  high_progress and low_progress
+## W = 21, p-value = 0.04635
+## alternative hypothesis: true location shift is greater than 0
+\end{verbatim}
+
+\hypertarget{perform-t-test}{%
+\subsubsection{Perform t-test}\label{perform-t-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(high\_progress, low\_progress, }\AttributeTok{alternative =} \StringTok{"greater"}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(t\_test\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  high_progress and low_progress
+## t = 2.0622, df = 5.52, p-value = 0.04444
+## alternative hypothesis: true difference in means is greater than 0
+## 95 percent confidence interval:
+##  0.01156675        Inf
+## sample estimates:
+## mean of x mean of y 
+##     0.676     0.406
+\end{verbatim}
+
+\hypertarget{decision-conclusion-1}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-1}}
+
+\hypertarget{wilconxon-rank-sum-test}{%
+\paragraph{Wilconxon Rank Sum Test}\label{wilconxon-rank-sum-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+\ControlFlowTok{if}\NormalTok{ (wilcox\_result}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+\NormalTok{  decision }\OtherTok{\textless{}{-}} \StringTok{"Reject H0"}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{  decision }\OtherTok{\textless{}{-}} \StringTok{"Fail to reject H0"}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Significance level (alpha):"}\NormalTok{, alpha, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Significance level (alpha): 0.05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Wilcoxon rank sum W for high{-}progress readers:"}\NormalTok{, wilcox\_result}\SpecialCharTok{$}\NormalTok{statistic, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Wilcoxon rank sum W for high-progress readers: 21
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"P{-}value:"}\NormalTok{, wilcox\_result}\SpecialCharTok{$}\NormalTok{p.value, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## P-value: 0.04634586
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Decision:"}\NormalTok{, decision, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Decision: Reject H0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Conclusion:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Wilcoxon rank sum test, we "}\NormalTok{, decision, }\StringTok{" at the 5\% significance level. Therefore, there is evidence to suggest that the scores of high{-}progress readers are higher than those of low{-}progress readers when retelling a story they have heard without pictures.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the Wilcoxon rank sum test, we  Reject H0  at the 5% significance level. Therefore, there is evidence to suggest that the scores of high-progress readers are higher than those of low-progress readers when retelling a story they have heard without pictures.
+\end{verbatim}
+
+\hypertarget{t-test}{%
+\paragraph{T-test}\label{t-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (t\_test\_result}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+\NormalTok{  t\_decision }\OtherTok{\textless{}{-}} \StringTok{"Reject H0"}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{  t\_decision }\OtherTok{\textless{}{-}} \StringTok{"Fail to reject H0"}
+\NormalTok{\}}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Significance level (alpha):"}\NormalTok{, alpha, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Significance level (alpha): 0.05
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"T{-}statistic:"}\NormalTok{, t\_test\_result}\SpecialCharTok{$}\NormalTok{statistic, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## T-statistic: 2.062211
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Degrees of Freedom:"}\NormalTok{, t\_test\_result}\SpecialCharTok{$}\NormalTok{parameter, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Degrees of Freedom: 5.519982
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"P{-}value:"}\NormalTok{, t\_test\_result}\SpecialCharTok{$}\NormalTok{p.value, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## P-value: 0.04443579
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Decision:"}\NormalTok{, t\_decision, }\StringTok{"}\SpecialCharTok{\textbackslash{}n\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Decision: Reject H0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion:}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Conclusion:
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the t{-}test, we "}\NormalTok{, t\_decision, }\StringTok{" at the 5\% significance level. Therefore, there is evidence to suggest that the scores of high{-}progress readers are higher than those of low{-}progress readers when retelling a story they have heard without pictures.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the t-test, we  Reject H0  at the 5% significance level. Therefore, there is evidence to suggest that the scores of high-progress readers are higher than those of low-progress readers when retelling a story they have heard without pictures.
+\end{verbatim}
+
+\hypertarget{q4}{%
+\section{Q4}\label{q4}}
+
+How often do nurses use latex gloves during procedures for which glove
+use is recommended? A matched pairs study observed nurses (without their
+knowledge) before and after a presentation on the importance of . glove
+use. Here are the proportions of procedures for which each nurse wore
+gloves:
+
+Nurse: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 Before: 0.500,
+0.500, 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.167, 0.000,
+0.000, 0.000, 1.000 After: 0.857, 0.833, 1.000, 1.000, 1.000, 1.000,
+1.000, 1.000, 0.667, 1.000, 0.750, 1.000, 1.000, 1.000
+
+Is there a good evidence that glove use increased after the
+presentation?
+
+\hypertarget{solution-3}{%
+\subsection{Solution}\label{solution-3}}
+
+\textbf{Null Hypothesis (H0)}: There is no difference in the proportion
+of procedures for which nurses wore gloves before and after the
+presentation. In other words, the mean difference in glove use is zero.
+\textbf{Alternative Hypothesis (H1)}: There is an increase in the
+proportion of procedures for which nurses wore gloves after the
+presentation. In other words, the mean difference in glove use is
+greater than zero. \textbf{Confidence Interval}: 95\%
+
+\hypertarget{load-data-3}{%
+\subsubsection{Load data}\label{load-data-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}
+  \AttributeTok{Before =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.500}\NormalTok{, }\FloatTok{0.500}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.167}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{0.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{),}
+  \AttributeTok{After =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.857}\NormalTok{, }\FloatTok{0.833}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{0.667}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{0.750}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{, }\FloatTok{1.000}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-dataframe}{%
+\subsubsection{Create dataframe}\label{create-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{paired-t-test}{%
+\subsubsection{Paired t-test}\label{paired-t-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t.test }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{Before, df}\SpecialCharTok{$}\NormalTok{After, }\AttributeTok{paired =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"t{-}statistic:"}\NormalTok{, t.test}\SpecialCharTok{$}\NormalTok{statistic, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## t-statistic: -5.767878
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"p{-}value:"}\NormalTok{, t.test}\SpecialCharTok{$}\NormalTok{p.value, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## p-value: 6.513227e-05
+\end{verbatim}
+
+\hypertarget{confidence-interval}{%
+\subsubsection{Confidence interval}\label{confidence-interval}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{confidence\_level }\OtherTok{\textless{}{-}} \FloatTok{0.95}
+\NormalTok{mean\_diff }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{After) }\SpecialCharTok{{-}} \FunctionTok{mean}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{Before)}
+\NormalTok{se }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{After }\SpecialCharTok{{-}}\NormalTok{ df}\SpecialCharTok{$}\NormalTok{Before)}
+\NormalTok{margin\_of\_error }\OtherTok{\textless{}{-}} \FunctionTok{qt}\NormalTok{(}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{{-}}\NormalTok{ confidence\_level) }\SpecialCharTok{/} \DecValTok{2}\NormalTok{, }\AttributeTok{df =} \FunctionTok{nrow}\NormalTok{(df) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ se}
+
+\NormalTok{lower\_bound }\OtherTok{\textless{}{-}}\NormalTok{ mean\_diff }\SpecialCharTok{{-}}\NormalTok{ margin\_of\_error}
+\NormalTok{upper\_bound }\OtherTok{\textless{}{-}}\NormalTok{ mean\_diff }\SpecialCharTok{+}\NormalTok{ margin\_of\_error}
+
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Confidence interval ("}\NormalTok{, confidence\_level }\SpecialCharTok{*} \DecValTok{100}\NormalTok{, }\StringTok{"\%):"}\NormalTok{, lower\_bound, }\StringTok{"{-}"}\NormalTok{, upper\_bound, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Confidence interval ( 95 %): -0.2563508 - 1.533494
+\end{verbatim}
+
+\hypertarget{decision-and-conclusion}{%
+\subsubsection{Decision and conclusion}\label{decision-and-conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (t.test}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject the null hypothesis. There is evidence that glove use increased after the presentation."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject the null hypothesis. There is not enough evidence to conclude that glove use increased after the presentation."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reject the null hypothesis. There is evidence that glove use increased after the presentation.
+\end{verbatim}
+
+\hypertarget{q5}{%
+\section{Q5}\label{q5}}
+
+You compared the number of tree species in plots of land in a tropical
+rainforest that had never been logged with similar plots nearby that had
+been logged 8 years earlier. The researchers also counted species in
+plots that had been logged just 1 year earlier. Here are the counts of
+species:
+
+Plot Type: Species Count Unlogged: 22, 18, 22, 20, 15, 21 13, 13, 19,
+13, 19, 15 Logged 1 year ago: 11, 11, 14, 7, 18, 15 15, 12, 12, 2, 15, 8
+Logged 8 years ago: 17, 4, 18, 14, 18, 15 15, 10, 12, 0, 0, 0 Compare
+the distribution of species count. State hypotheses, the test statistics
+and its P-value, and your conclusion
+
+\hypertarget{solution-4}{%
+\subsection{Solution}\label{solution-4}}
+
+\textbf{Null Hypothesis (H0)}: There is no significant difference in the
+mean species counts among the plot types. \textbf{Alternative Hypothesis
+(H1)}: There is a significant difference in the mean species counts
+among the plot types. \textbf{Significance Level (α)}: Typically set at
+0.05.
+
+\hypertarget{load-data-4}{%
+\subsubsection{Load data}\label{load-data-4}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{PlotType =} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Unlogged"}\NormalTok{, }\DecValTok{12}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Logged 1 year"}\NormalTok{, }\DecValTok{12}\NormalTok{), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Logged 8 years"}\NormalTok{, }\DecValTok{12}\NormalTok{)),}
+  \AttributeTok{SpeciesCount =} \FunctionTok{c}\NormalTok{(}\DecValTok{22}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{kruskal-wallis-test}{%
+\subsubsection{Kruskal-Wallis Test}\label{kruskal-wallis-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{kruskal.test}\NormalTok{(SpeciesCount }\SpecialCharTok{\textasciitilde{}}\NormalTok{ PlotType, }\AttributeTok{data =}\NormalTok{ data)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{box-plot}{%
+\subsubsection{Box Plot}\label{box-plot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PlotType, }\AttributeTok{y =}\NormalTok{ SpeciesCount)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Distribution of Species Count in Tropical Rainforest Plots"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Plot Type"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Species Count"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Non-Paramteric-Analysis_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+\hypertarget{decision-conclusion-2}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_value }\OtherTok{\textless{}{-}}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{p.value}
+
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+
+\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject the null hypothesis. There is a significant difference in the distribution of species counts among the plot types.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject the null hypothesis. There is no significant difference in the distribution of species counts among the plot types.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reject the null hypothesis. There is a significant difference in the distribution of species counts among the plot types.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Kruskal{-}Wallis test, there is sufficient evidence to conclude that there is a significant difference in the distribution of species counts among the unlogged, logged 1 year ago, and logged 8 years ago plots.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Kruskal{-}Wallis test, there is not enough evidence to conclude that there is a significant difference in the distribution of species counts among the unlogged, logged 1 year ago, and logged 8 years ago plots.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the Kruskal-Wallis test, there is sufficient evidence to conclude that there is a significant difference in the distribution of species counts among the unlogged, logged 1 year ago, and logged 8 years ago plots.
+\end{verbatim}
+
+\hypertarget{q6}{%
+\section{Q6}\label{q6}}
+
+A ``subliminal'' message is below our threshold of awareness but may
+nonetheless influence us. Can subliminal messages help students learn
+math? A group of students who had failed the mathematics part of. the
+City University of New York Skills Assessment Test agreed to participate
+in a study to find out. All received a daily subliminal message, flashed
+on a screen.too rapidly to be consciously read. The treatment group of
+10 students was exposed to ``Each day I.am getting better in math.'' The
+control group of 8 students was exposed to a neutral message, ``People
+are walking on the street.'' All students participated in a summer
+program designed to raise their math skills, and all took the assessment
+test again at the end of the program. Here are data on the subjects'
+scores before and after the program.
+
+Treatment group: Pretest: 18, 18, 21, 18, 18, 20, 23, 23, 21, 17
+Posttest: 24, 25, 33, 29, 33, 36, 34, 36, 34, 27 Control group: Pretest:
+18, 24, 20, 18, 24, 22, 15, 19 Posttest: 29, 29, 24, 26, 38, 27, 22, 31
+
+Apply the Wilcoxon rank sum test to the posttest versus pretest
+differences. Note that there are some ties. What do you conclude?
+
+\hypertarget{solution-5}{%
+\subsection{Solution}\label{solution-5}}
+
+\textbf{Null Hypothesis (H0)}: There is no significant difference
+between the posttest-pretest score differences of the treatment and
+control groups. \textbf{Alternative Hypothesis (H1)}: There is a
+significant difference between the posttest-pretest score differences of
+the treatment and control groups, suggesting the treatment group
+improved more than the control group. \textbf{Significance Level (α)}:
+Typically set at 0.05.
+
+\hypertarget{load-data-5}{%
+\subsubsection{Load data}\label{load-data-5}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{treatment\_pre }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DecValTok{17}\NormalTok{)}
+\NormalTok{treatment\_post }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{24}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{33}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{33}\NormalTok{, }\DecValTok{36}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{36}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{27}\NormalTok{)}
+
+\NormalTok{control\_pre }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{18}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{)}
+\NormalTok{control\_post }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{29}\NormalTok{, }\DecValTok{29}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{26}\NormalTok{, }\DecValTok{38}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{31}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-difference-in-scores}{%
+\subsubsection{Calculate difference in
+scores}\label{calculate-difference-in-scores}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{treatment\_diff }\OtherTok{\textless{}{-}}\NormalTok{ treatment\_post }\SpecialCharTok{{-}}\NormalTok{ treatment\_pre}
+\NormalTok{control\_diff }\OtherTok{\textless{}{-}}\NormalTok{ control\_post }\SpecialCharTok{{-}}\NormalTok{ control\_pre}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{combining-the-differences-and-indicating-the-group}{%
+\subsubsection{Combining the differences and indicating the
+group}\label{combining-the-differences-and-indicating-the-group}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{all\_diff }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(treatment\_diff, control\_diff)}
+\NormalTok{group }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\StringTok{"Treatment"}\NormalTok{, }\FunctionTok{length}\NormalTok{(treatment\_diff)), }\FunctionTok{rep}\NormalTok{(}\StringTok{"Control"}\NormalTok{, }\FunctionTok{length}\NormalTok{(control\_diff)))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creating-a-data-frame}{%
+\subsubsection{Creating a data frame}\label{creating-a-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Differences =}\NormalTok{ all\_diff, }\AttributeTok{Group =}\NormalTok{ group)}
+\FunctionTok{print}\NormalTok{(data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Differences     Group
+## 1            6 Treatment
+## 2            7 Treatment
+## 3           12 Treatment
+## 4           11 Treatment
+## 5           15 Treatment
+## 6           16 Treatment
+## 7           11 Treatment
+## 8           13 Treatment
+## 9           13 Treatment
+## 10          10 Treatment
+## 11          11   Control
+## 12           5   Control
+## 13           4   Control
+## 14           8   Control
+## 15          14   Control
+## 16           5   Control
+## 17           7   Control
+## 18          12   Control
+\end{verbatim}
+
+\hypertarget{performing-wilcoxon-rank-sum-test}{%
+\subsubsection{Performing Wilcoxon rank sum
+test}\label{performing-wilcoxon-rank-sum-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{result }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(Differences }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Group, }\AttributeTok{data =}\NormalTok{ data, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\AttributeTok{exact =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{correct =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{decision-conclusion-3}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-3}}
+
+If the p-value is less than the significance level (usually 0.05), we
+reject the null hypothesis. Otherwise, we fail to reject the null
+hypothesis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_value }\OtherTok{\textless{}{-}}\NormalTok{ result}\SpecialCharTok{$}\NormalTok{p.value}
+
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+
+\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Wilcoxon rank sum test, with a p{-}value of"}\NormalTok{, }\FunctionTok{round}\NormalTok{(p\_value, }\DecValTok{4}\NormalTok{), }\StringTok{"we reject the null hypothesis."}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"There is a significant difference in improvement between the treatment group and the control group."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Wilcoxon rank sum test, with a p{-}value of"}\NormalTok{, }\FunctionTok{round}\NormalTok{(p\_value, }\DecValTok{4}\NormalTok{), }\StringTok{"we fail to reject the null hypothesis."}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"There is no significant difference in improvement between the treatment group and the control group."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the Wilcoxon rank sum test, with a p-value of 0.0988 we fail to reject the null hypothesis.There is no significant difference in improvement between the treatment group and the control group.
+\end{verbatim}
+
+\hypertarget{q7}{%
+\section{Q7}\label{q7}}
+
+The hippocampus has been suggested as playing and important role in
+memory storage and retrieval, and it is in hippocampal structures
+(particularly size) could play a role in schizophrenia. Scans on the
+brains of 15 schizophrenic individuals and their identical twins were
+obtained. They measured the volume of each brain's left hippocampus.
+
+Pair: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 Normal: 1.94,
+1.45, 1.56, 1.58, 2.06, 1.66, 1.75, 1.77, 1.78, 1.92, 1.25, 1.923, 2.04,
+1.62, 2.08 Schizophrenic: 1.27, 1.63, 1.47, 1.39, 1.93, 1.26, 1.71,
+1.67, 1.28, 1.85, 1.02, 1.34, 2.02, 1.59, 1.97
+
+If you plot the difference scores for these 15 twin pairs, you will note
+that the distribution is far from normal. Compare the volume of the left
+hippocampus in twin pairs, one of whom is schizophrenic and one of whom
+is normal.
+
+\hypertarget{solution-6}{%
+\subsection{Solution}\label{solution-6}}
+
+\textbf{Null Hypothesis (H0)}: There is no significant difference in the
+volume of the left hippocampus between schizophrenic twins and their
+normal twins. \textbf{Alternative Hypothesis (H1)}: There is a
+significant difference in the volume of the left hippocampus between
+schizophrenic twins and their normal twins. \textbf{Significance Level
+(α)}: Typically set at 0.05.
+
+\hypertarget{load-data-6}{%
+\subsubsection{Load data}\label{load-data-6}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{normal }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.94}\NormalTok{, }\FloatTok{1.45}\NormalTok{, }\FloatTok{1.56}\NormalTok{, }\FloatTok{1.58}\NormalTok{, }\FloatTok{2.06}\NormalTok{, }\FloatTok{1.66}\NormalTok{, }\FloatTok{1.75}\NormalTok{, }\FloatTok{1.77}\NormalTok{, }\FloatTok{1.78}\NormalTok{, }\FloatTok{1.92}\NormalTok{, }\FloatTok{1.25}\NormalTok{, }\FloatTok{1.923}\NormalTok{, }\FloatTok{2.04}\NormalTok{, }\FloatTok{1.62}\NormalTok{, }\FloatTok{2.08}\NormalTok{)}
+\NormalTok{schizophrenic }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.27}\NormalTok{, }\FloatTok{1.63}\NormalTok{, }\FloatTok{1.47}\NormalTok{, }\FloatTok{1.39}\NormalTok{, }\FloatTok{1.93}\NormalTok{, }\FloatTok{1.26}\NormalTok{, }\FloatTok{1.71}\NormalTok{, }\FloatTok{1.67}\NormalTok{, }\FloatTok{1.28}\NormalTok{, }\FloatTok{1.85}\NormalTok{, }\FloatTok{1.02}\NormalTok{, }\FloatTok{1.34}\NormalTok{, }\FloatTok{2.02}\NormalTok{, }\FloatTok{1.59}\NormalTok{, }\FloatTok{1.97}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-the-difference-scores}{%
+\subsubsection{Calculate the difference
+scores:}\label{calculate-the-difference-scores}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{difference }\OtherTok{\textless{}{-}}\NormalTok{ schizophrenic }\SpecialCharTok{{-}}\NormalTok{ normal}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{check-the-distribution-of-difference-scores}{%
+\subsubsection{Check the distribution of difference
+scores}\label{check-the-distribution-of-difference-scores}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(difference, }\AttributeTok{main=}\StringTok{"Distribution of Difference Scores"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Difference in Volume (Schizophrenic {-} Normal)"}\NormalTok{, }\AttributeTok{col=}\StringTok{"lightblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Non-Paramteric-Analysis_files/figure-latex/unnamed-chunk-36-1.pdf}
+
+\hypertarget{perform-wilcoxon-signed-rank-test}{%
+\subsubsection{Perform Wilcoxon signed-rank
+test}\label{perform-wilcoxon-signed-rank-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wilcox\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(difference)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{decision-conclusion-4}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-4}}
+
+\hypertarget{decision}{%
+\paragraph{Decision}\label{decision}}
+
+If the p-value is less than the significance level (e.g., 0.05), we
+reject the null hypothesis. If the p-value is greater than or equal to
+the significance level, we fail to reject the null hypothesis. \#\#\#\#
+Conclusion
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p\_value }\OtherTok{\textless{}{-}}\NormalTok{ wilcox\_test\_result}\SpecialCharTok{$}\NormalTok{p.value}
+
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+
+\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject the null hypothesis. There is a significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject the null hypothesis. There is no significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reject the null hypothesis. There is a significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Wilcoxon signed{-}rank test, the comparison of the volume of the left hippocampus between schizophrenic twins and their normal twins yields a p{-}value of"}\NormalTok{, p\_value, }\StringTok{". This suggests that"}\NormalTok{, }\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}\StringTok{"there is a significant difference"}\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}\StringTok{"there is no significant difference"}\NormalTok{\}, }\StringTok{"in the volume of the left hippocampus between the two groups.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the Wilcoxon signed-rank test, the comparison of the volume of the left hippocampus between schizophrenic twins and their normal twins yields a p-value of 0.00201416 . This suggests that there is a significant difference in the volume of the left hippocampus between the two groups.
+\end{verbatim}
+
+\hypertarget{q8}{%
+\section{Q8}\label{q8}}
+
+Give Kruskal-Wallis method of analysis for one way classification of
+data. Seasonal rainfall at two meteorological observations of a district
+is given below. Examine by using Run test and median test whether the
+rainfall of two observations can be considered as same.
+
+Year: 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995
+A: 25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83,
+22.02 B: 24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00,~
+
+\hypertarget{solution-7}{%
+\subsubsection{Solution}\label{solution-7}}
+
+\hypertarget{kruskal-wallis-test-1}{%
+\paragraph{Kruskal-Wallis Test:}\label{kruskal-wallis-test-1}}
+
+\textbf{Null Hypothesis (H0)}: There is no difference in the median
+rainfall between observations A and B. \textbf{Alternative Hypothesis
+(H1)}: There is a difference in the median rainfall between observations
+A and B. \textbf{Significance Level (α)}: Typically set at 0.05.
+
+\hypertarget{runs-median-test}{%
+\paragraph{Runs \& Median Test:}\label{runs-median-test}}
+
+\textbf{Null Hypothesis (H0)}: The sequence of rainfall data exhibits
+randomness. \textbf{Alternative Hypothesis (H1)}: The sequence of
+rainfall data does not exhibit randomness. \textbf{Significance Level
+(α)}: Typically set at 0.05.
+
+\hypertarget{load-data-7}{%
+\subsubsection{Load data}\label{load-data-7}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{25.34}\NormalTok{, }\FloatTok{49.35}\NormalTok{, }\FloatTok{39.60}\NormalTok{, }\FloatTok{42.90}\NormalTok{, }\FloatTok{57.66}\NormalTok{, }\FloatTok{24.89}\NormalTok{, }\FloatTok{50.63}\NormalTok{, }\FloatTok{38.47}\NormalTok{, }\FloatTok{43.25}\NormalTok{, }\FloatTok{50.83}\NormalTok{, }\FloatTok{22.02}\NormalTok{)}
+\NormalTok{B }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{24.31}\NormalTok{, }\FloatTok{45.13}\NormalTok{, }\FloatTok{42.83}\NormalTok{, }\FloatTok{46.94}\NormalTok{, }\FloatTok{57.50}\NormalTok{, }\FloatTok{30.70}\NormalTok{, }\FloatTok{48.37}\NormalTok{, }\FloatTok{44.00}\NormalTok{, }\FloatTok{50.00}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{combine-the-data-into-a-single-data-frame}{%
+\subsubsection{Combine the data into a single data
+frame}\label{combine-the-data-into-a-single-data-frame}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Observation =} \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{), }\FunctionTok{c}\NormalTok{(}\FunctionTok{length}\NormalTok{(A), }\FunctionTok{length}\NormalTok{(B)))), }
+                            \AttributeTok{Rainfall =} \FunctionTok{c}\NormalTok{(A, B))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{kruskal-wallis-test-2}{%
+\subsubsection{Kruskal-Wallis Test:}\label{kruskal-wallis-test-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kruskal\_test }\OtherTok{\textless{}{-}} \FunctionTok{kruskal.test}\NormalTok{(Rainfall }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Observation, }\AttributeTok{data =}\NormalTok{ rainfall\_data)}
+\FunctionTok{print}\NormalTok{(kruskal\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  Rainfall by Observation
+## Kruskal-Wallis chi-squared = 0.1746, df = 1, p-value = 0.6761
+\end{verbatim}
+
+\hypertarget{run-test}{%
+\subsubsection{Run test}\label{run-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{run\_test }\OtherTok{\textless{}{-}} \FunctionTok{runs.test}\NormalTok{(rainfall\_data}\SpecialCharTok{$}\NormalTok{Rainfall, }\AttributeTok{plot =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Non-Paramteric-Analysis_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(run\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Runs Test
+## 
+## data:  rainfall_data$Rainfall
+## statistic = 1.3784, runs = 14, n1 = 10, n2 = 10, n = 20, p-value =
+## 0.1681
+## alternative hypothesis: nonrandomness
+\end{verbatim}
+
+\hypertarget{median-test}{%
+\subsubsection{Median test}\label{median-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{median\_test }\OtherTok{\textless{}{-}} \FunctionTok{median\_test}\NormalTok{(Rainfall }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Observation, }\AttributeTok{data =}\NormalTok{ rainfall\_data)}
+\FunctionTok{print}\NormalTok{(median\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Asymptotic Two-Sample Brown-Mood Median Test
+## 
+## data:  Rainfall by Observation (A, B)
+## Z = -1.3143, p-value = 0.1888
+## alternative hypothesis: true mu is not equal to 0
+\end{verbatim}
+
+\hypertarget{decision-conclusion-5}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-5}}
+
+\hypertarget{kruskal-wallis-test-decision-and-conclusion}{%
+\paragraph{Kruskal-Wallis Test Decision and
+Conclusion}\label{kruskal-wallis-test-decision-and-conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (kruskal\_test}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Kruskal{-}Wallis Test Result: Reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: There is a significant difference in the median rainfall between observations A and B.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Kruskal{-}Wallis Test Result: Fail to reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: There is no significant difference in the median rainfall between observations A and B.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Kruskal-Wallis Test Result: Fail to reject the null hypothesis.
+## Conclusion: There is no significant difference in the median rainfall between observations A and B.
+\end{verbatim}
+
+\hypertarget{run-test-decision-and-conclusion}{%
+\paragraph{Run Test Decision and
+Conclusion}\label{run-test-decision-and-conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (run\_test}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Run Test Result: Reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: The sequence of rainfall data does not exhibit randomness.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Run Test Result: Fail to reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: The sequence of rainfall data exhibits randomness.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Run Test Result: Fail to reject the null hypothesis.
+## Conclusion: The sequence of rainfall data exhibits randomness.
+\end{verbatim}
+
+\hypertarget{median-test-decision-and-conclusion}{%
+\paragraph{Median Test Decision and
+Conclusion}\label{median-test-decision-and-conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{pvalue}\NormalTok{(median\_test) }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Median Test Result: Reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: There is a significant difference in the median rainfall between observations A and B.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Median Test Result: Fail to reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Conclusion: There is no significant difference in the median rainfall between observations A and B.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Median Test Result: Fail to reject the null hypothesis.
+## Conclusion: There is no significant difference in the median rainfall between observations A and B.
+\end{verbatim}
+
+Give Kruskal-Wallis method of analysis for one way classification of
+data. Seasonal rainfall at two meteorological observations of a district
+is given below. Examine by using Run test and median test whether the
+rainfall of two observations can be considered as same.
+
+Year: 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995
+A: 25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83,
+22.02 B: 24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00,
+
+\hypertarget{solution-8}{%
+\subsection{Solution}\label{solution-8}}
+
+\textbf{Null Hypothesis (H0)}: The seasonal rainfall at the two
+meteorological observations of the district is the same.
+\textbf{Alternative Hypothesis (H1)}: The seasonal rainfall at the two
+meteorological observations of the district is different.
+\textbf{Significance Level (α)}: Typically set at 0.05.
+
+\hypertarget{load-data-8}{%
+\subsubsection{Load data}\label{load-data-8}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_A }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{25.34}\NormalTok{, }\FloatTok{49.35}\NormalTok{, }\FloatTok{39.60}\NormalTok{, }\FloatTok{42.90}\NormalTok{, }\FloatTok{57.66}\NormalTok{, }\FloatTok{24.89}\NormalTok{, }\FloatTok{50.63}\NormalTok{, }\FloatTok{38.47}\NormalTok{, }\FloatTok{43.25}\NormalTok{, }\FloatTok{50.83}\NormalTok{, }\FloatTok{22.02}\NormalTok{)}
+\NormalTok{rainfall\_B }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{24.31}\NormalTok{, }\FloatTok{45.13}\NormalTok{, }\FloatTok{42.83}\NormalTok{, }\FloatTok{46.94}\NormalTok{, }\FloatTok{57.50}\NormalTok{, }\FloatTok{30.70}\NormalTok{, }\FloatTok{48.37}\NormalTok{, }\FloatTok{44.00}\NormalTok{, }\FloatTok{50.00}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{kruskal-wallis-test-3}{%
+\subsubsection{Kruskal-Wallis test}\label{kruskal-wallis-test-3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kruskal\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{kruskal.test}\NormalTok{(}\FunctionTok{list}\NormalTok{(rainfall\_A, rainfall\_B))}
+\FunctionTok{print}\NormalTok{(kruskal\_test\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Kruskal-Wallis rank sum test
+## 
+## data:  list(rainfall_A, rainfall_B)
+## Kruskal-Wallis chi-squared = 0.1746, df = 1, p-value = 0.6761
+\end{verbatim}
+
+\hypertarget{plot}{%
+\subsubsection{Plot}\label{plot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(rainfall\_A, rainfall\_B, }\AttributeTok{names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observation A"}\NormalTok{, }\StringTok{"Observation B"}\NormalTok{), }
+        \AttributeTok{xlab =} \StringTok{"Observations"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Rainfall (mm)"}\NormalTok{, }\AttributeTok{main =} \StringTok{"Seasonal Rainfall Comparison"}\NormalTok{)}
+
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{, }\AttributeTok{legend =} \FunctionTok{c}\NormalTok{(}\StringTok{"Observation A"}\NormalTok{, }\StringTok{"Observation B"}\NormalTok{), }\AttributeTok{fill =} \FunctionTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Non-Paramteric-Analysis_files/figure-latex/unnamed-chunk-49-1.pdf}
+
+\hypertarget{decision-conclusion-6}{%
+\subsubsection{Decision \& Conclusion}\label{decision-conclusion-6}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05}
+\ControlFlowTok{if}\NormalTok{ (kruskal\_test\_result}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject null hypothesis: The rainfall at the two observations is significantly different.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject null hypothesis: There is not enough evidence to conclude that the rainfall at the two observations is different.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Fail to reject null hypothesis: There is not enough evidence to conclude that the rainfall at the two observations is different.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (kruskal\_test\_result}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Kruskal{-}Wallis test at a significance level of 0.05, we reject the null hypothesis. This suggests that there is significant evidence to conclude that the rainfall at the two meteorological observations is different."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Based on the Kruskal{-}Wallis test at a significance level of 0.05, we fail to reject the null hypothesis. This indicates that there is not enough evidence to conclude that the rainfall at the two meteorological observations is different."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Based on the Kruskal-Wallis test at a significance level of 0.05, we fail to reject the null hypothesis. This indicates that there is not enough evidence to conclude that the rainfall at the two meteorological observations is different.
+\end{verbatim}
+
+\hypertarget{q9}{%
+\section{Q9}\label{q9}}
+
+n vitro fertilization (IVF) data for 1992-2005 show the number of IVF
+treatment cycles, together with the number of singleton births, twin
+births and triplet and higher order births, for each year. The data are
+shown in the table below. For example, out of 18201 cycles of IVF
+treatment in year 1, there were 2373 (1712 + 591. +70) pregnancies
+leading to live births, of which 1712 were singleton births, 591 were
+twin births and 70 resulted in three or more babies.
+
+Year: 1, 2, 3, 4, 5, 6. 7, 8, 9, 10, 11, 12, 13, 14 Number of treatment
+cycles: 18201, 21239, 23517, 27203, 25033, 23551, 22737, 22720, 22342,
+22477, 21884, 23250, 23794 Singleton birth: 1712, 2244, 2391, 1589,
+3015, 2718, 2812, 2945, 3083, 3116, 3284, 3371, 3460, 3626, Twin births:
+591, 738, 837, 915, 1041, 888, 978, 1013, 1002, 1007, 1096, 1043, 1015,
+1132 Triplet and higher order births: 70, 110, 123, 106, 123, 113, 113,
+74, 81, 53, 53, 25, 15, 15 Consider the probability that a treatment
+cycle gives rise to a singleton birth, determine whether or not the data
+are consistent with this probability being the same for all fourteen
+years.
+
+\hypertarget{solution-9}{%
+\subsection{Solution}\label{solution-9}}
+
+\textbf{Null Hypothesis (H0)}: The probability of a treatment cycle
+resulting in a singleton birth is the same for all fourteen years.
+\textbf{Alternative Hypothesis (H1)}: The probability of a treatment
+cycle resulting in a singleton birth is not the same for all fourteen
+years. \textbf{Significance Level (α)}: 0.025 (Adjusted for multiple
+comparisons)
+
+\hypertarget{load-data-9}{%
+\subsubsection{Load data}\label{load-data-9}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ivf\_data }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+  \AttributeTok{Year =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{13}\NormalTok{,}
+  \AttributeTok{Treatment\_Cycles =} \FunctionTok{c}\NormalTok{(}\DecValTok{18201}\NormalTok{, }\DecValTok{21239}\NormalTok{, }\DecValTok{23517}\NormalTok{, }\DecValTok{25414}\NormalTok{, }\DecValTok{27203}\NormalTok{, }\DecValTok{25033}\NormalTok{, }\DecValTok{23551}\NormalTok{, }\DecValTok{22737}\NormalTok{, }\DecValTok{22720}\NormalTok{, }\DecValTok{22342}\NormalTok{, }\DecValTok{22477}\NormalTok{, }\DecValTok{21884}\NormalTok{, }\DecValTok{23250}\NormalTok{),}
+  \AttributeTok{Singleton\_Births =} \FunctionTok{c}\NormalTok{(}\DecValTok{1712}\NormalTok{, }\DecValTok{2244}\NormalTok{, }\DecValTok{2391}\NormalTok{, }\DecValTok{2589}\NormalTok{, }\DecValTok{3015}\NormalTok{, }\DecValTok{2781}\NormalTok{, }\DecValTok{2812}\NormalTok{, }\DecValTok{2945}\NormalTok{, }\DecValTok{3083}\NormalTok{, }\DecValTok{3116}\NormalTok{, }\DecValTok{3284}\NormalTok{, }\DecValTok{3371}\NormalTok{, }\DecValTok{3460}\NormalTok{),}
+  \AttributeTok{Twin\_Births =} \FunctionTok{c}\NormalTok{(}\DecValTok{591}\NormalTok{, }\DecValTok{738}\NormalTok{, }\DecValTok{837}\NormalTok{, }\DecValTok{915}\NormalTok{, }\DecValTok{1041}\NormalTok{, }\DecValTok{888}\NormalTok{, }\DecValTok{978}\NormalTok{, }\DecValTok{1013}\NormalTok{, }\DecValTok{1002}\NormalTok{, }\DecValTok{1007}\NormalTok{, }\DecValTok{1096}\NormalTok{, }\DecValTok{1043}\NormalTok{, }\DecValTok{1015}\NormalTok{),}
+  \AttributeTok{Triplet\_Higher\_Births =} \FunctionTok{c}\NormalTok{(}\DecValTok{70}\NormalTok{, }\DecValTok{110}\NormalTok{, }\DecValTok{123}\NormalTok{, }\DecValTok{106}\NormalTok{, }\DecValTok{123}\NormalTok{, }\DecValTok{113}\NormalTok{, }\DecValTok{113}\NormalTok{, }\DecValTok{74}\NormalTok{, }\DecValTok{81}\NormalTok{, }\DecValTok{53}\NormalTok{, }\DecValTok{53}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+\NormalTok{)}
+\FunctionTok{head}\NormalTok{(ivf\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##    Year Treatment_Cycles Singleton_Births Twin_Births Triplet_Higher_Births
+##   <int>            <dbl>            <dbl>       <dbl>                 <dbl>
+## 1     1            18201             1712         591                    70
+## 2     2            21239             2244         738                   110
+## 3     3            23517             2391         837                   123
+## 4     4            25414             2589         915                   106
+## 5     5            27203             3015        1041                   123
+## 6     6            25033             2781         888                   113
+\end{verbatim}
+
+\hypertarget{calculate-overall-proportion-of-singleton-births}{%
+\subsubsection{Calculate overall proportion of singleton
+births}\label{calculate-overall-proportion-of-singleton-births}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{expected\_probs }\OtherTok{\textless{}{-}} \FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\FunctionTok{length}\NormalTok{(ivf\_data}\SpecialCharTok{$}\NormalTok{Singleton\_Births), }\FunctionTok{length}\NormalTok{(ivf\_data}\SpecialCharTok{$}\NormalTok{Singleton\_Births))}
+\FunctionTok{print}\NormalTok{(expected\_probs)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.07692308 0.07692308 0.07692308 0.07692308 0.07692308 0.07692308
+##  [7] 0.07692308 0.07692308 0.07692308 0.07692308 0.07692308 0.07692308
+## [13] 0.07692308
+\end{verbatim}
+
+\hypertarget{perform-chi-square-goodness-of-fit-test}{%
+\subsubsection{Perform chi-square goodness-of-fit
+test}\label{perform-chi-square-goodness-of-fit-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{chi\_square\_result }\OtherTok{\textless{}{-}} \FunctionTok{chisq.test}\NormalTok{(ivf\_data}\SpecialCharTok{$}\NormalTok{Singleton\_Births, }\AttributeTok{p =}\NormalTok{ expected\_probs)}
+\FunctionTok{print}\NormalTok{(chi\_square\_result)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Chi-squared test for given probabilities
+## 
+## data:  ivf_data$Singleton_Births
+## X-squared = 1037, df = 12, p-value < 2.2e-16
+\end{verbatim}
+
+\hypertarget{decison-conclusion}{%
+\subsubsection{Decison \& Conclusion}\label{decison-conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.05} \SpecialCharTok{/} \DecValTok{2}
+\ControlFlowTok{if}\NormalTok{ (chi\_square\_result}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject the null hypothesis. The probability of a singleton birth is not the same for all fourteen years.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject the null hypothesis. The probability of a singleton birth is the same for all fourteen years.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reject the null hypothesis. The probability of a singleton birth is not the same for all fourteen years.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Chi{-}square test statistic:"}\NormalTok{, chi\_square\_result}\SpecialCharTok{$}\NormalTok{statistic, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Chi-square test statistic: 1037.014
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"p{-}value:"}\NormalTok{, chi\_square\_result}\SpecialCharTok{$}\NormalTok{p.value, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## p-value: 2.061157e-214
+\end{verbatim}
+
+\hypertarget{q10}{%
+\section{Q10}\label{q10}}
+
+A quality control chart has been maintained for a measurable
+characteristic of items taken from a conveyor belt at a fixed point in a
+production line The measurements obtained today, in order of time, are
+as follows: 68.2 71.6 69.3 71.6 70.4 65.0 63.6 64.7 65.3 64.2 67.6 68.6
+66.8 68.9 66.8 70.1 a. determine (using the runs test) whether
+consecutive observations suggest lack of stability in the production
+process. b. Divide the time period into two equal parts and compare the
+means, using Student's / test. Do the data provide evidence of a shift
+in the mean level of the quality characteristics? Explain.
+
+\hypertarget{solution-10}{%
+\subsection{Solution}\label{solution-10}}
+
+\hypertarget{a}{%
+\subsection{A}\label{a}}
+
+\textbf{Null Hypothesis (H0)}: The data exhibit randomness, suggesting
+process stability. \textbf{Alternative Hypothesis (H1)}: The data
+exhibit non-randomness, suggesting lack of process stability.
+
+\hypertarget{load-data-10}{%
+\subsubsection{Load data}\label{load-data-10}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{68.2}\NormalTok{, }\FloatTok{71.6}\NormalTok{, }\FloatTok{69.3}\NormalTok{, }\FloatTok{71.6}\NormalTok{, }\FloatTok{70.4}\NormalTok{, }\FloatTok{65.0}\NormalTok{, }\FloatTok{63.6}\NormalTok{, }\FloatTok{64.7}\NormalTok{,}
+          \FloatTok{65.3}\NormalTok{, }\FloatTok{64.2}\NormalTok{, }\FloatTok{67.6}\NormalTok{, }\FloatTok{68.6}\NormalTok{, }\FloatTok{66.8}\NormalTok{, }\FloatTok{68.9}\NormalTok{, }\FloatTok{66.8}\NormalTok{, }\FloatTok{70.1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{identify-runs}{%
+\subsubsection{Identify runs}\label{identify-runs}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{up.down }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(data) }\SpecialCharTok{\textgreater{}} \DecValTok{0}
+\NormalTok{runs }\OtherTok{\textless{}{-}} \FunctionTok{rle}\NormalTok{(up.down)}\SpecialCharTok{$}\NormalTok{lengths}
+\NormalTok{n1 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(runs }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)}
+\NormalTok{n2 }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(runs }\SpecialCharTok{==} \SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-expected-and-standard-deviation-of-runs}{%
+\subsubsection{Calculate expected and standard deviation of
+runs}\label{calculate-expected-and-standard-deviation-of-runs}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{E.runs }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ n1 }\SpecialCharTok{*}\NormalTok{ n2 }\SpecialCharTok{/}\NormalTok{ (n1 }\SpecialCharTok{+}\NormalTok{ n2) }\SpecialCharTok{+} \DecValTok{1}
+\NormalTok{Var.runs }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{*}\NormalTok{ n1 }\SpecialCharTok{*}\NormalTok{ n2 }\SpecialCharTok{*}\NormalTok{ (n1 }\SpecialCharTok{+}\NormalTok{ n2) }\SpecialCharTok{/}\NormalTok{ ((n1 }\SpecialCharTok{+}\NormalTok{ n2)}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{*}\NormalTok{ (n1 }\SpecialCharTok{+}\NormalTok{ n2 }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{))}
+\NormalTok{Z }\OtherTok{\textless{}{-}}\NormalTok{ (}\FunctionTok{sum}\NormalTok{(runs) }\SpecialCharTok{{-}}\NormalTok{ E.runs) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(Var.runs)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{critical-value-one-tailed-left-0.05-significance}{%
+\subsubsection{Critical value (one-tailed left, 0.05
+significance)}\label{critical-value-one-tailed-left-0.05-significance}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z\_alpha }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\AttributeTok{mean =} \DecValTok{0}\NormalTok{, }\AttributeTok{sd =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{decision-and-conclusion-1}{%
+\subsubsection{Decision and
+Conclusion}\label{decision-and-conclusion-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (Z }\SpecialCharTok{\textless{}} \SpecialCharTok{{-}}\NormalTok{z\_alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject H0. The data suggest lack of randomness, potentially indicating instability.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject H0. No evidence of non{-}randomness is found.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Fail to reject H0. No evidence of non-randomness is found.
+\end{verbatim}
+
+\hypertarget{b}{%
+\subsection{B}\label{b}}
+
+\textbf{Null Hypothesis (H0)}: The mean of the data in the first half is
+equal to the mean in the second half. \textbf{Alternative Hypothesis
+(H1)}: The means are not equal, suggesting a shift in the mean level.
+
+\hypertarget{load-data-11}{%
+\subsubsection{Load data}\label{load-data-11}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data1 }\OtherTok{\textless{}{-}}\NormalTok{ data[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{8}\NormalTok{]}
+\NormalTok{data2 }\OtherTok{\textless{}{-}}\NormalTok{ data[}\DecValTok{9}\SpecialCharTok{:}\DecValTok{16}\NormalTok{]}
+\NormalTok{mean1 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(data1)}
+\NormalTok{mean2 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(data2)}
+\NormalTok{sd1 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(data1)}
+\NormalTok{sd2 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(data2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pooled-variance}{%
+\subsubsection{Pooled variance}\label{pooled-variance}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pooled.var }\OtherTok{\textless{}{-}}\NormalTok{ ((}\FunctionTok{length}\NormalTok{(data1) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ sd1}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+}\NormalTok{ (}\FunctionTok{length}\NormalTok{(data2) }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ sd2}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{) }\SpecialCharTok{/}\NormalTok{ (}\FunctionTok{length}\NormalTok{(data1) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(data2) }\SpecialCharTok{{-}} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{t-statistic}{%
+\subsubsection{T-statistic}\label{t-statistic}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t }\OtherTok{\textless{}{-}}\NormalTok{ (mean1 }\SpecialCharTok{{-}}\NormalTok{ mean2) }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(pooled.var }\SpecialCharTok{*}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{/}\NormalTok{ (}\FunctionTok{length}\NormalTok{(data1) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(data2))))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{degrees-of-freedom}{%
+\subsubsection{Degrees of freedom}\label{degrees-of-freedom}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{length}\NormalTok{(data1) }\SpecialCharTok{+} \FunctionTok{length}\NormalTok{(data2) }\SpecialCharTok{{-}} \DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{p-value-two-tailed}{%
+\subsubsection{P-value (two-tailed)}\label{p-value-two-tailed}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p.value }\OtherTok{\textless{}{-}} \DecValTok{2} \SpecialCharTok{*} \FunctionTok{pt}\NormalTok{(}\FunctionTok{abs}\NormalTok{(t), }\AttributeTok{df =}\NormalTok{ df, }\AttributeTok{lower.tail =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{decision-and-conclusion-2}{%
+\subsubsection{Decision and
+Conclusion}\label{decision-and-conclusion-2}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (p.value }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject H0. The observed difference in means between the two halves is statistically significant (p{-}value ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(p.value, }\DecValTok{4}\NormalTok{), }\StringTok{"). This suggests a shift in the mean level of the quality characteristic.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject H0. No statistically significant evidence is found for a shift in the mean level (p{-}value ="}\NormalTok{, }\FunctionTok{round}\NormalTok{(p.value, }\DecValTok{4}\NormalTok{), }\StringTok{").}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Fail to reject H0. No statistically significant evidence is found for a shift in the mean level (p-value = 0.2705 ).
+\end{verbatim}
+
+\hypertarget{q11}{%
+\section{Q11}\label{q11}}
+
+A government economist estimates that the median cost per pound of beef
+is N5.00. A sample of 22 livestock buyers shows the following cost per
+beef. Is there enough evidence to reject the economist's hypothesis at
+alpha 0.10?
+
+5.35, 5.16, 4.97, 4.83, 5.05, 5.19, 4.78, 4.93, 5.00, 5.42, 4.86, 5.05,
+5.13, 5.00, 5.10, 5.27, 5.06, 5.25, 4.63, 5.16, 5.19, 5.16
+
+\hypertarget{solution-11}{%
+\subsection{Solution}\label{solution-11}}
+
+\textbf{Null Hypothesis (H0)}: The median cost per pound of beef is
+N5.00 \textbf{Alternative Hypothesis (H1)}: The median cost per pound of
+beef is not N5.00
+
+\hypertarget{load-data-12}{%
+\subsubsection{Load data}\label{load-data-12}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{beef\_cost }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{5.35}\NormalTok{, }\FloatTok{5.16}\NormalTok{, }\FloatTok{4.97}\NormalTok{, }\FloatTok{4.83}\NormalTok{, }\FloatTok{5.05}\NormalTok{, }\FloatTok{5.19}\NormalTok{, }\FloatTok{4.78}\NormalTok{, }\FloatTok{4.93}\NormalTok{, }\FloatTok{5.00}\NormalTok{, }\FloatTok{5.42}\NormalTok{, }
+               \FloatTok{4.86}\NormalTok{, }\FloatTok{5.05}\NormalTok{, }\FloatTok{5.13}\NormalTok{, }\FloatTok{5.00}\NormalTok{, }\FloatTok{5.10}\NormalTok{, }\FloatTok{5.27}\NormalTok{, }\FloatTok{5.06}\NormalTok{, }\FloatTok{5.25}\NormalTok{, }\FloatTok{4.63}\NormalTok{, }\FloatTok{5.16}\NormalTok{, }
+               \FloatTok{5.19}\NormalTok{, }\FloatTok{5.16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-the-sample-median}{%
+\subsubsection{Calculate the sample
+median}\label{calculate-the-sample-median}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sample\_median }\OtherTok{\textless{}{-}} \FunctionTok{median}\NormalTok{(beef\_cost)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{perform-one-sample-wilcoxon-signed-rank-test}{%
+\subsubsection{Perform one-sample Wilcoxon signed-rank
+test}\label{perform-one-sample-wilcoxon-signed-rank-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wilcox\_test\_result }\OtherTok{\textless{}{-}} \FunctionTok{wilcox.test}\NormalTok{(beef\_cost, }\AttributeTok{mu =} \DecValTok{5}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\AttributeTok{exact =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{interpret-the-result}{%
+\subsubsection{Interpret the result}\label{interpret-the-result}}
+
+For a significance level of alpha = 0.10, we compare the p-value to
+alpha.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.10}
+\NormalTok{p\_value }\OtherTok{\textless{}{-}}\NormalTok{ wilcox\_test\_result}\SpecialCharTok{$}\NormalTok{p.value}
+
+\ControlFlowTok{if}\NormalTok{ (p\_value }\SpecialCharTok{\textless{}}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Since the p{-}value ("}\NormalTok{, }\FunctionTok{round}\NormalTok{(p\_value, }\DecValTok{4}\NormalTok{), }\StringTok{") is less than the significance level (alpha ="}\NormalTok{, alpha, }\StringTok{"), we reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Since the p{-}value ("}\NormalTok{, }\FunctionTok{round}\NormalTok{(p\_value, }\DecValTok{4}\NormalTok{), }\StringTok{") is greater than the significance level (alpha ="}\NormalTok{, alpha, }\StringTok{"), we fail to reject the null hypothesis.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Since the p-value ( 0.0965 ) is less than the significance level (alpha = 0.1 ), we reject the null hypothesis.
+\end{verbatim}
+
+\hypertarget{conclusion}{%
+\subsubsection{Conclusion}\label{conclusion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"There is not enough evidence to conclude that the median cost per pound of beef is different from N5.00 at the"}\NormalTok{, alpha, }\StringTok{"significance level.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## There is not enough evidence to conclude that the median cost per pound of beef is different from N5.00 at the 0.1 significance level.
+\end{verbatim}
+
+\hypertarget{q12}{%
+\section{Q12}\label{q12}}
+
+Is there a difference in weekend movie attendance based on the evening
+in question? Eight small-town theaters were surveyed to see how many
+movie patrons were in attendance on Saturday evening and Sunday evening.
+Is there sufficient evidence to reject the claim that there is no
+difference in movie attendance for Saturday and Sunday evenings? Use a
+10 degree significance level. Theater: A, B, C, D, E, F, G, H Saturday:
+210, 100, 150, 50, 195, 125, 120, 204 Sunday: 165, 42, 92, 60, 172, 100,
+108, 136
+
+\hypertarget{solution-12}{%
+\subsection{Solution}\label{solution-12}}
+
+\textbf{Null hypothesis (H0)}: There is no difference in movie
+attendance for Saturday and Sunday evenings. \textbf{Alternative
+hypothesis (H1)}: There is a difference in movie attendance for Saturday
+and Sunday evenings.
+
+\hypertarget{load-data-13}{%
+\subsubsection{Load data}\label{load-data-13}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{saturday }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{210}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{150}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{195}\NormalTok{, }\DecValTok{125}\NormalTok{, }\DecValTok{120}\NormalTok{, }\DecValTok{204}\NormalTok{)}
+\NormalTok{sunday }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{165}\NormalTok{, }\DecValTok{42}\NormalTok{, }\DecValTok{92}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{172}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{108}\NormalTok{, }\DecValTok{136}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{perform-two-sample-t-test}{%
+\subsubsection{Perform two-sample
+t-test}\label{perform-two-sample-t-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t\_test }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(saturday, sunday, }\AttributeTok{paired =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{alternative =} \StringTok{"two.sided"}\NormalTok{, }\AttributeTok{conf.level =} \FloatTok{0.90}\NormalTok{)}
+
+\FunctionTok{print}\NormalTok{(t\_test)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  saturday and sunday
+## t = 1.3496, df = 13.499, p-value = 0.1994
+## alternative hypothesis: true difference in means is not equal to 0
+## 90 percent confidence interval:
+##  -10.75938  80.50938
+## sample estimates:
+## mean of x mean of y 
+##   144.250   109.375
+\end{verbatim}
+
+\hypertarget{decision-1}{%
+\subsubsection{Decision}\label{decision-1}}
+
+To make a decision, compare the p-value to the significance level
+(alpha), which is 0.10 in this case.
+
+If the p-value is less than or equal to alpha (0.10), reject the null
+hypothesis. Otherwise, fail to reject the null hypothesis.
+
+\hypertarget{conclusion-1}{%
+\subsubsection{Conclusion}\label{conclusion-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{alpha }\OtherTok{\textless{}{-}} \FloatTok{0.10}
+\ControlFlowTok{if}\NormalTok{ (t\_test}\SpecialCharTok{$}\NormalTok{p.value }\SpecialCharTok{\textless{}=}\NormalTok{ alpha) \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Reject the null hypothesis. There is sufficient evidence to suggest a difference in movie attendance for Saturday and Sunday evenings.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{cat}\NormalTok{(}\StringTok{"Fail to reject the null hypothesis. There is not enough evidence to suggest a difference in movie attendance for Saturday and Sunday evenings.}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Fail to reject the null hypothesis. There is not enough evidence to suggest a difference in movie attendance for Saturday and Sunday evenings.
+\end{verbatim}
+
+\end{document}

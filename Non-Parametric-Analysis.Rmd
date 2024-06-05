@@ -1,0 +1,826 @@
+---
+author: "@hendurhance"
+date: "2024-02-25"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load necessary packages
+Using the `library` function, load your packages e.g `library(package_name)`
+```{r, message=F, warning=FALSE, echo=T}
+library(tidyverse)   # For data manipulation, plotting, and cleaning
+library(broom)       # For tidy statistical outputs
+library(ggpubr)      # For data visualization and data cleaning
+library(randtests)   # For testing randomness
+library(BSDA)        # For basic statistics and data analysis
+library(ggplot2)     # For basic plot visualization
+library(dplyr)       # For cleaner data manipulation
+library(stats)       # For statistical analysis
+library(coin)        # For analysing two sets of variable
+```
+
+# Q1
+An experiment was done to compare four different methods of teaching the concept of percentage to sixth graders. Experimental units were 28 classes which were randomly assigned to the four methods, seven classes per method. A 45 item test was given to all classes. The average test scores of the classes are summarized in the table below. Show an R print out of the analysis. What can you conclude?
+Case method: 14.59, 23.44, 25.53, 18.15, 20.82, 14.06, 14.26
+Formula method: 20.27, 26.84, 14.71, 22.34, 19.49, 24.92, 20.20
+Equation method: 27.82, 24.92, 28.68, 23.32, 32.85, 33.90, 23.42
+Unitary analysis method: 33.16, 26.93, 30.43, 36.43, 37.04, 29.76, 33.88
+
+## Solution
+**Null Hypothesis (H0)**: The mean test scores are not significantly different across the teaching methods.
+**Alternative Hypothesis (Ha)**: There are significant differences in the mean test scores across the teaching methods.
+**Significance Level (α)**: 0.025 (Adjusted for multiple comparisons)
+
+### Load data
+```{r}
+case_method <- c(14.59, 23.44, 25.53, 18.15, 20.82, 14.06, 14.26)
+formula_method <- c(20.27, 26.84, 14.71, 22.34, 19.49, 24.92, 20.20)
+equation_method <- c(27.82, 24.92, 28.68, 23.32, 32.85, 33.90, 23.42)
+unitary_analysis_method <- c(33.16, 26.93, 30.43, 36.43, 37.04, 29.76, 33.88)
+```
+### Combine the data into a data frame
+```{r}
+data <- data.frame(
+  Method = rep(c("Case", "Formula", "Equation", "Unitary Analysis"), each = 7),
+  Score = c(case_method, formula_method, equation_method, unitary_analysis_method)
+)
+```
+
+### Check the structure of the data frame
+```{r}
+str(data)
+```
+
+### Create boxplot
+```{r}
+ggplot(data, aes(x = Method, y = Score, fill = Method)) +
+  geom_boxplot() +
+  labs(title = "Comparison of Teaching Methods for Percentage Concept",
+       x = "Teaching Method",
+       y = "Test Score") +
+  theme_minimal()
+```
+
+### Perform ANOVA test
+```{r}
+anova_result <- aov(Score ~ Method, data = data)
+summary(anova_result)
+```
+
+### Decision & Conclusion
+**Decision**: Given that the probability (Pr) of obtaining the observed F value of 15.86 under the assumption that the null hypothesis is true is less than the chosen significance level (α), we reject the null hypothesis (Ho).
+**Conclusion**: Therefore, we conclude that there is a significant difference in the mean test scores among the different teaching methods.
+
+### Tukey post-hoc test for pairwise comparisons
+```{r}
+tukey_test <- TukeyHSD(anova_result)
+print(tukey_test)
+```
+
+
+
+
+
+
+
+# Q2
+A study is conducted to investigate the relationship between cigarette smoking during pregnancy and the weights of newborn infants. The 15 women smokers who make up the sample kept accurate records of the number of cigarettes smoked during their pregnancies and the weights of their children were recorded at birth. The data are given below:
+Women: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+Cig. Per day: 12, 15, 35, 21, 20, 17, 19, 46, 20, 25, 39, 25, 30, 27, 29
+Baby's Weight: 7.7, 8.1, 6.9, 8.2, 8.6, 8.3, 9.4, 7.8, 8.3, 5.2, 6.4, 7.9, 8.0
+
+By showing the R output of your analysis, determine whether level of cigarette smoking and weights of newborns are negatively correlated for all smoking mothers.
+
+## Solution
+**Null Hypothesis (H0)**: The true correlation between the number of cigarettes smoked per day during pregnancy and the weight of newborn infants is equal to 0.
+**Alternative Hypothesis (Ha)**: The true correlation between the number of cigarettes smoked per day during pregnancy and the weight of newborn infants is not equal to 0.
+**Significance Level (α)**: Since we're conducting a two-tailed test, we'll use an alpha level of 0.05 divided by 2 to account for both tails, resulting in α = 0.025.
+
+### Load Data
+```{r}
+women <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
+cigarettes <- c(12, 15, 35, 21, 20, 17, 19, 46, 20, 25, 39, 25, 30, 27, 29)
+weight <- c(7.7, 8.1, 6.9, 8.2, 8.6, 8.3, 9.4, 7.8, 8.3, 5.2, 6.4, 7.9, 8.0, 7.5, 7.2)
+```
+
+### Calculate Pearson correlation coefficient
+```{r}
+correlation <- cor(cigarettes, weight)
+```
+
+### Display the correlation coefficient
+```{r}
+cat("Correlation coefficient:", correlation, "\n")
+```
+
+### Interpret the correlation coefficient
+```{r}
+if (correlation < 0) {
+  print("There is a negative correlation between cigarette smoking during pregnancy and the weights of newborn infants.")
+} else if (correlation == 0) {
+  print("There is no correlation between cigarette smoking during pregnancy and the weights of newborn infants.")
+} else {
+  print("There is a positive correlation between cigarette smoking during pregnancy and the weights of newborn infants.")
+}
+```
+
+
+# Q3
+A study of early childhood education asked kindergarten students to retell two fairy tales that had be read to them earlier in the week. The 10 children in the study included 5 high-progress readers and low-progress readers. Each child told two stories. Story 1 had been read to them; Story 2 had been read and also illustrated with pictures. An expert listened to a recording of the children and assigned a score for certain uses of language. Here are the data
+
+Child: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+Progress: high, high, high, high, high, low, low, low, low, low
+Story 1 Score: 0.55, 0.57, 0.72, 0.70, 0.84, 0.40, 0.72, 0.00, 0.36, 0.55
+Store 2 Score: 0.80, 0.82, 0.52, 0.74, 0.89, 0.77, 0.49, 0.66, 0.28, 0.38
+
+Is there evidence that the scores of high-progress readers are higher than those of low-progress readers when they retell a story they have heard without pictures (Story 1)? Carry out the Wilcoxon rank sum test. State hypotheses and give the rank sum W for high progress readers, its P-value, and your conclusion. Do the t and Wilcoxon tests lead you to different conclusions?
+
+## Solution
+**Null Hypothesis (H0)**: There is no difference in the scores of high-progress readers and low-progress readers when retelling a story they have heard without pictures (Story 1).
+**Alternative Hypothesis (H1)**: The scores of high-progress readers are higher than those of low-progress readers when retelling a story they have heard without pictures (Story 1).
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+progress <- c("high", "high", "high", "high", "high", "low", "low", "low", "low", "low")
+story1_score <- c(0.55, 0.57, 0.72, 0.70, 0.84, 0.40, 0.72, 0.00, 0.36, 0.55)
+story2_score <- c(0.80, 0.82, 0.52, 0.74, 0.89, 0.77, 0.49, 0.66, 0.28, 0.38)
+```
+
+### Create a data frame
+```{r}
+data <- data.frame(Child = 1:10, Progress = progress, Story1_Score = story1_score, Story2_Score = story2_score)
+print(data)
+```
+
+### Separate the scores by progress
+```{r}
+high_progress <- data[data$Progress == "high", "Story1_Score"]
+low_progress <- data[data$Progress == "low", "Story1_Score"]
+```
+
+### Perform Wilcoxon rank sum test
+```{r}
+wilcox_result <- wilcox.test(high_progress, low_progress, alternative = "greater", exact = FALSE)
+print(wilcox_result)
+```
+
+### Perform t-test
+```{r}
+t_test_result <- t.test(high_progress, low_progress, alternative = "greater")
+print(t_test_result)
+```
+
+### Decision & Conclusion 
+#### Wilconxon Rank Sum Test
+```{r}
+alpha <- 0.05
+if (wilcox_result$p.value < alpha) {
+  decision <- "Reject H0"
+} else {
+  decision <- "Fail to reject H0"
+}
+cat("Significance level (alpha):", alpha, "\n\n")
+cat("Wilcoxon rank sum W for high-progress readers:", wilcox_result$statistic, "\n")
+cat("P-value:", wilcox_result$p.value, "\n")
+cat("Decision:", decision, "\n\n")
+cat("Conclusion:\n")
+cat("Based on the Wilcoxon rank sum test, we ", decision, " at the 5% significance level. Therefore, there is evidence to suggest that the scores of high-progress readers are higher than those of low-progress readers when retelling a story they have heard without pictures.\n")
+```
+
+#### T-test
+```{r}
+if (t_test_result$p.value < alpha) {
+  t_decision <- "Reject H0"
+} else {
+  t_decision <- "Fail to reject H0"
+}
+cat("Significance level (alpha):", alpha, "\n\n")
+cat("T-statistic:", t_test_result$statistic, "\n")
+cat("Degrees of Freedom:", t_test_result$parameter, "\n")
+cat("P-value:", t_test_result$p.value, "\n")
+cat("Decision:", t_decision, "\n\n")
+cat("Conclusion:\n")
+cat("Based on the t-test, we ", t_decision, " at the 5% significance level. Therefore, there is evidence to suggest that the scores of high-progress readers are higher than those of low-progress readers when retelling a story they have heard without pictures.\n")
+```
+
+
+# Q4
+How often do nurses use latex gloves during procedures for which glove use is recommended? A matched pairs study observed nurses (without their knowledge) before and after a presentation on the importance of . glove use. Here are the proportions of procedures for which each nurse wore gloves:
+
+Nurse: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+Before: 0.500, 0.500, 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.167, 0.000, 0.000, 0.000, 1.000
+After: 0.857, 0.833, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 0.667, 1.000, 0.750, 1.000, 1.000, 1.000
+
+Is there a good evidence that glove use increased after the presentation?
+
+## Solution
+**Null Hypothesis (H0)**: There is no difference in the proportion of procedures for which nurses wore gloves before and after the presentation. In other words, the mean difference in glove use is zero.
+**Alternative Hypothesis (H1)**: There is an increase in the proportion of procedures for which nurses wore gloves after the presentation. In other words, the mean difference in glove use is greater than zero.
+**Confidence Interval**: 95% 
+
+### Load data
+```{r}
+data <- list(
+  Before = c(0.500, 0.500, 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.167, 0.000, 0.000, 0.000, 1.000),
+  After = c(0.857, 0.833, 1.000, 1.000, 1.000, 1.000, 1.000, 1.000, 0.667, 1.000, 0.750, 1.000, 1.000, 1.000)
+)
+```
+### Create dataframe
+```{r}
+df <- data.frame(data)
+```
+
+### Paired t-test
+```{r}
+t.test <- t.test(df$Before, df$After, paired = TRUE)
+cat("t-statistic:", t.test$statistic, "\n")
+cat("p-value:", t.test$p.value, "\n")
+```
+
+
+### Confidence interval
+```{r}
+confidence_level <- 0.95
+mean_diff <- mean(df$After) - mean(df$Before)
+se <- sd(df$After - df$Before)
+margin_of_error <- qt(1 - (1 - confidence_level) / 2, df = nrow(df) - 1) * se
+
+lower_bound <- mean_diff - margin_of_error
+upper_bound <- mean_diff + margin_of_error
+
+cat("Confidence interval (", confidence_level * 100, "%):", lower_bound, "-", upper_bound, "\n")
+```
+### Decision and conclusion
+```{r}
+if (t.test$p.value < 0.05) {
+  cat("Reject the null hypothesis. There is evidence that glove use increased after the presentation.")
+} else {
+  cat("Fail to reject the null hypothesis. There is not enough evidence to conclude that glove use increased after the presentation.")
+}
+```
+
+
+
+# Q5
+You compared the number of tree species in plots of land in a tropical rainforest that had never been logged with similar plots nearby that had been logged 8 years earlier. The researchers also counted species in plots that had been logged just 1 year earlier. Here are the counts of species:
+
+Plot Type: Species Count
+Unlogged: 22, 18, 22, 20, 15, 21
+          13, 13, 19, 13, 19, 15
+Logged 1 year ago: 11, 11, 14, 7, 18, 15
+                   15, 12, 12, 2, 15, 8
+Logged 8 years ago: 17, 4, 18, 14, 18, 15
+                    15, 10, 12, 0, 0, 0
+Compare the distribution of species count. State hypotheses, the test statistics and its P-value, and your conclusion
+
+## Solution
+**Null Hypothesis (H0)**: There is no significant difference in the mean species counts among the plot types.
+**Alternative Hypothesis (H1)**: There is a significant difference in the mean species counts among the plot types.
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+data <- data.frame(
+  PlotType = c(rep("Unlogged", 12), rep("Logged 1 year", 12), rep("Logged 8 years", 12)),
+  SpeciesCount = c(22, 18, 22, 20, 15, 21, 13, 13, 19, 13, 19, 15, 11, 11, 14, 7, 18, 15, 15, 12, 12, 2, 15, 8, 17, 4, 18, 14, 18, 15, 15, 10, 12, 0, 0, 0)
+)
+```
+
+### Kruskal-Wallis Test
+```{r}
+result <- kruskal.test(SpeciesCount ~ PlotType, data = data)
+```
+
+### Box Plot
+```{r}
+ggplot(data, aes(x = PlotType, y = SpeciesCount)) +
+  geom_boxplot() +
+  labs(title = "Distribution of Species Count in Tropical Rainforest Plots",
+       x = "Plot Type", y = "Species Count")
+```
+
+### Decision & Conclusion
+```{r}
+p_value <- result$p.value
+
+alpha <- 0.05
+
+if (p_value < alpha) {
+  cat("Reject the null hypothesis. There is a significant difference in the distribution of species counts among the plot types.\n")
+} else {
+  cat("Fail to reject the null hypothesis. There is no significant difference in the distribution of species counts among the plot types.\n")
+}
+
+if (p_value < alpha) {
+  cat("Based on the Kruskal-Wallis test, there is sufficient evidence to conclude that there is a significant difference in the distribution of species counts among the unlogged, logged 1 year ago, and logged 8 years ago plots.\n")
+} else {
+  cat("Based on the Kruskal-Wallis test, there is not enough evidence to conclude that there is a significant difference in the distribution of species counts among the unlogged, logged 1 year ago, and logged 8 years ago plots.\n")
+}
+```
+
+# Q6
+A "subliminal" message is below our threshold of awareness but may nonetheless influence us. Can subliminal messages help students learn math? A group of students who had failed the mathematics part of. the City University of New York Skills Assessment Test agreed to participate in a study to find out. All received a daily subliminal message, flashed on a screen.too rapidly to be consciously read. The treatment group of 10 students was exposed to "Each day I.am getting better in math." The control group of 8 students was exposed to a neutral message, "People are walking on the street." All students participated in a summer program designed to raise their math skills, and all took the assessment test again at the end of the program. Here are data on the subjects' scores before and after the program.
+
+Treatment group: Pretest: 18, 18, 21, 18, 18, 20, 23, 23, 21, 17
+                 Posttest: 24, 25, 33, 29, 33, 36, 34, 36, 34, 27
+Control group:   Pretest: 18, 24, 20, 18, 24, 22, 15, 19
+                 Posttest: 29, 29, 24, 26, 38, 27, 22, 31
+
+Apply the Wilcoxon rank sum test to the posttest versus pretest differences. Note that there are some ties. What do you conclude?
+
+## Solution
+**Null Hypothesis (H0)**: There is no significant difference between the posttest-pretest score differences of the treatment and control groups.
+**Alternative Hypothesis (H1)**: There is a significant difference between the posttest-pretest score differences of the treatment and control groups, suggesting the treatment group improved more than the control group.
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+treatment_pre <- c(18, 18, 21, 18, 18, 20, 23, 23, 21, 17)
+treatment_post <- c(24, 25, 33, 29, 33, 36, 34, 36, 34, 27)
+
+control_pre <- c(18, 24, 20, 18, 24, 22, 15, 19)
+control_post <- c(29, 29, 24, 26, 38, 27, 22, 31)
+```
+### Calculate difference in scores
+```{r}
+treatment_diff <- treatment_post - treatment_pre
+control_diff <- control_post - control_pre
+```
+
+### Combining the differences and indicating the group
+```{r}
+all_diff <- c(treatment_diff, control_diff)
+group <- c(rep("Treatment", length(treatment_diff)), rep("Control", length(control_diff)))
+```
+
+### Creating a data frame
+```{r}
+data <- data.frame(Differences = all_diff, Group = group)
+print(data)
+```
+
+### Performing Wilcoxon rank sum test
+```{r}
+result <- wilcox.test(Differences ~ Group, data = data, alternative = "two.sided", exact = FALSE, correct = TRUE)
+```
+
+### Decision & Conclusion
+If the p-value is less than the significance level (usually 0.05), we reject the null hypothesis. Otherwise, we fail to reject the null hypothesis.
+```{r}
+p_value <- result$p.value
+
+alpha <- 0.05
+
+if (p_value < alpha) {
+  cat("Based on the Wilcoxon rank sum test, with a p-value of", round(p_value, 4), "we reject the null hypothesis.")
+  cat("There is a significant difference in improvement between the treatment group and the control group.")
+} else {
+  cat("Based on the Wilcoxon rank sum test, with a p-value of", round(p_value, 4), "we fail to reject the null hypothesis.")
+  cat("There is no significant difference in improvement between the treatment group and the control group.")
+}
+```
+
+
+
+
+
+# Q7
+The hippocampus has been suggested as playing and important role in memory storage and retrieval, and it is in hippocampal structures (particularly size) could play a role in schizophrenia. Scans on the brains of 15 schizophrenic individuals and their identical twins were obtained. They measured the volume of each brain's left hippocampus.
+
+Pair: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+Normal: 1.94, 1.45, 1.56, 1.58, 2.06, 1.66, 1.75, 1.77, 1.78, 1.92, 1.25, 1.923, 2.04, 1.62, 2.08
+Schizophrenic: 1.27, 1.63, 1.47, 1.39, 1.93, 1.26, 1.71, 1.67, 1.28, 1.85, 1.02, 1.34, 2.02, 1.59, 1.97
+
+If you plot the difference scores for these 15 twin pairs, you will note that the distribution is far from normal. Compare the volume of the left hippocampus in twin pairs, one of whom is schizophrenic and one of whom is normal.
+
+## Solution
+**Null Hypothesis (H0)**: There is no significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.
+**Alternative Hypothesis (H1)**: There is a significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+normal <- c(1.94, 1.45, 1.56, 1.58, 2.06, 1.66, 1.75, 1.77, 1.78, 1.92, 1.25, 1.923, 2.04, 1.62, 2.08)
+schizophrenic <- c(1.27, 1.63, 1.47, 1.39, 1.93, 1.26, 1.71, 1.67, 1.28, 1.85, 1.02, 1.34, 2.02, 1.59, 1.97)
+```
+
+### Calculate the difference scores:
+```{r}
+difference <- schizophrenic - normal
+```
+
+### Check the distribution of difference scores
+```{r}
+hist(difference, main="Distribution of Difference Scores", xlab="Difference in Volume (Schizophrenic - Normal)", col="lightblue")
+```
+
+### Perform Wilcoxon signed-rank test
+```{r}
+wilcox_test_result <- wilcox.test(difference)
+```
+
+### Decision & Conclusion
+#### Decision
+If the p-value is less than the significance level (e.g., 0.05), we reject the null hypothesis.
+If the p-value is greater than or equal to the significance level, we fail to reject the null hypothesis.
+#### Conclusion
+```{r}
+p_value <- wilcox_test_result$p.value
+
+alpha <- 0.05
+
+if (p_value < alpha) {
+  cat("Reject the null hypothesis. There is a significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.\n")
+} else {
+  cat("Fail to reject the null hypothesis. There is no significant difference in the volume of the left hippocampus between schizophrenic twins and their normal twins.\n")
+}
+
+cat("Based on the Wilcoxon signed-rank test, the comparison of the volume of the left hippocampus between schizophrenic twins and their normal twins yields a p-value of", p_value, ". This suggests that", if (p_value < alpha) {"there is a significant difference"} else {"there is no significant difference"}, "in the volume of the left hippocampus between the two groups.\n")
+```
+
+
+
+
+# Q8
+Give Kruskal-Wallis method of analysis for one way classification of data. Seasonal rainfall at two meteorological observations of a district is given below. Examine by using Run test and median test whether the rainfall of two observations can be considered as same.
+
+Year: 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995
+A: 25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83, 22.02
+B: 24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00, 
+
+### Solution
+#### Kruskal-Wallis Test:
+**Null Hypothesis (H0)**: There is no difference in the median rainfall between observations A and B.
+**Alternative Hypothesis (H1)**: There is a difference in the median rainfall between observations A and B.
+**Significance Level (α)**: Typically set at 0.05.
+
+#### Runs & Median Test:
+**Null Hypothesis (H0)**: The sequence of rainfall data exhibits randomness.
+**Alternative Hypothesis (H1)**: The sequence of rainfall data does not exhibit randomness.
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+A <- c(25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83, 22.02)
+B <- c(24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00)
+```
+
+### Combine the data into a single data frame
+```{r}
+rainfall_data <- data.frame(Observation = factor(rep(c("A", "B"), c(length(A), length(B)))), 
+                            Rainfall = c(A, B))
+```
+
+### Kruskal-Wallis Test:
+```{r}
+kruskal_test <- kruskal.test(Rainfall ~ Observation, data = rainfall_data)
+print(kruskal_test)
+```
+### Run test
+```{r}
+run_test <- runs.test(rainfall_data$Rainfall, plot = TRUE)
+print(run_test)
+
+```
+
+### Median test
+```{r}
+median_test <- median_test(Rainfall ~ Observation, data = rainfall_data)
+print(median_test)
+```
+### Decision & Conclusion
+#### Kruskal-Wallis Test Decision and Conclusion
+```{r}
+if (kruskal_test$p.value < 0.05) {
+  cat("Kruskal-Wallis Test Result: Reject the null hypothesis.\n")
+  cat("Conclusion: There is a significant difference in the median rainfall between observations A and B.\n")
+} else {
+  cat("Kruskal-Wallis Test Result: Fail to reject the null hypothesis.\n")
+  cat("Conclusion: There is no significant difference in the median rainfall between observations A and B.\n")
+}
+```
+#### Run Test Decision and Conclusion
+```{r}
+if (run_test$p.value < 0.05) {
+  cat("Run Test Result: Reject the null hypothesis.\n")
+  cat("Conclusion: The sequence of rainfall data does not exhibit randomness.\n")
+} else {
+  cat("Run Test Result: Fail to reject the null hypothesis.\n")
+  cat("Conclusion: The sequence of rainfall data exhibits randomness.\n")
+}
+```
+
+#### Median Test Decision and Conclusion
+```{r}
+if (pvalue(median_test) < 0.05) {
+  cat("Median Test Result: Reject the null hypothesis.\n")
+  cat("Conclusion: There is a significant difference in the median rainfall between observations A and B.\n")
+} else {
+  cat("Median Test Result: Fail to reject the null hypothesis.\n")
+  cat("Conclusion: There is no significant difference in the median rainfall between observations A and B.\n")
+}
+
+```
+
+Give Kruskal-Wallis method of analysis for one way classification of data. Seasonal rainfall at two meteorological observations of a district is given below. Examine by using Run test and median test whether the rainfall of two observations can be considered as same.
+
+Year: 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995
+A: 25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83, 22.02
+B: 24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00,
+
+## Solution
+**Null Hypothesis (H0)**: The seasonal rainfall at the two meteorological observations of the district is the same.
+**Alternative Hypothesis (H1)**: The seasonal rainfall at the two meteorological observations of the district is different.
+**Significance Level (α)**: Typically set at 0.05.
+
+### Load data
+```{r}
+rainfall_A <- c(25.34, 49.35, 39.60, 42.90, 57.66, 24.89, 50.63, 38.47, 43.25, 50.83, 22.02)
+rainfall_B <- c(24.31, 45.13, 42.83, 46.94, 57.50, 30.70, 48.37, 44.00, 50.00)
+```
+
+### Kruskal-Wallis test
+```{r}
+kruskal_test_result <- kruskal.test(list(rainfall_A, rainfall_B))
+print(kruskal_test_result)
+
+```
+
+### Plot
+```{r}
+boxplot(rainfall_A, rainfall_B, names = c("Observation A", "Observation B"), 
+        xlab = "Observations", ylab = "Rainfall (mm)", main = "Seasonal Rainfall Comparison")
+
+legend("topright", legend = c("Observation A", "Observation B"), fill = c("blue", "red"))
+```
+
+### Decision & Conclusion
+```{r}
+alpha <- 0.05
+if (kruskal_test_result$p.value < alpha) {
+  cat("Reject null hypothesis: The rainfall at the two observations is significantly different.\n")
+} else {
+  cat("Fail to reject null hypothesis: There is not enough evidence to conclude that the rainfall at the two observations is different.\n")
+}
+if (kruskal_test_result$p.value < alpha) {
+  cat("Based on the Kruskal-Wallis test at a significance level of 0.05, we reject the null hypothesis. This suggests that there is significant evidence to conclude that the rainfall at the two meteorological observations is different.")
+} else {
+  cat("Based on the Kruskal-Wallis test at a significance level of 0.05, we fail to reject the null hypothesis. This indicates that there is not enough evidence to conclude that the rainfall at the two meteorological observations is different.")
+}
+```
+
+# Q9
+n vitro fertilization (IVF) data for 1992-2005 show the number of IVF treatment cycles, together with the number of singleton births, twin births and triplet and higher order births, for each year. The data are shown in the table below. For example, out of 18201 cycles of IVF treatment in year 1, there were 2373 (1712 + 591. +70) pregnancies leading to live births, of which 1712 were singleton births, 591 were twin births and 70 resulted in three or more babies.
+
+Year: 1, 2, 3, 4, 5, 6. 7, 8, 9, 10, 11, 12, 13, 14
+Number of treatment cycles: 18201, 21239, 23517, 27203, 25033, 23551, 22737, 22720, 22342, 22477, 21884, 23250, 23794
+Singleton birth: 1712, 2244, 2391, 1589, 3015, 2718, 2812, 2945, 3083, 3116, 3284, 3371, 3460, 3626, 
+Twin births: 591, 738, 837, 915, 1041, 888, 978, 1013, 1002, 1007, 1096, 1043, 1015, 1132
+Triplet and higher order births: 70, 110, 123, 106, 123, 113, 113, 74, 81, 53, 53, 25, 15, 15
+Consider the probability that a treatment cycle gives rise to a singleton birth, determine whether or not the data are consistent with this probability being the same for all fourteen years.
+
+## Solution
+**Null Hypothesis (H0)**: The probability of a treatment cycle resulting in a singleton birth is the same for all fourteen years.
+**Alternative Hypothesis (H1)**: The probability of a treatment cycle resulting in a singleton birth is not the same for all fourteen years.
+**Significance Level (α)**: 0.025 (Adjusted for multiple comparisons)
+
+### Load data
+```{r}
+ivf_data <- tibble(
+  Year = 1:13,
+  Treatment_Cycles = c(18201, 21239, 23517, 25414, 27203, 25033, 23551, 22737, 22720, 22342, 22477, 21884, 23250),
+  Singleton_Births = c(1712, 2244, 2391, 2589, 3015, 2781, 2812, 2945, 3083, 3116, 3284, 3371, 3460),
+  Twin_Births = c(591, 738, 837, 915, 1041, 888, 978, 1013, 1002, 1007, 1096, 1043, 1015),
+  Triplet_Higher_Births = c(70, 110, 123, 106, 123, 113, 113, 74, 81, 53, 53, 25, 15)
+)
+head(ivf_data)
+```
+
+### Calculate overall proportion of singleton births
+```{r}
+expected_probs <- rep(1/length(ivf_data$Singleton_Births), length(ivf_data$Singleton_Births))
+print(expected_probs)
+```
+
+### Perform chi-square goodness-of-fit test
+```{r}
+chi_square_result <- chisq.test(ivf_data$Singleton_Births, p = expected_probs)
+print(chi_square_result)
+```
+
+### Decison & Conclusion
+```{r}
+alpha <- 0.05 / 2
+if (chi_square_result$p.value < alpha) {
+  cat("Reject the null hypothesis. The probability of a singleton birth is not the same for all fourteen years.\n")
+} else {
+  cat("Fail to reject the null hypothesis. The probability of a singleton birth is the same for all fourteen years.\n")
+}
+
+cat("Chi-square test statistic:", chi_square_result$statistic, "\n")
+cat("p-value:", chi_square_result$p.value, "\n")
+```
+
+
+# Q10
+A quality control chart has been maintained for a measurable characteristic of items taken from a conveyor belt at a fixed point in a production line The measurements obtained today, in order of time, are as follows:
+68.2 71.6 69.3 71.6 70.4 65.0 63.6 64.7
+65.3 64.2 67.6 68.6 66.8 68.9 66.8 70.1
+a. determine (using the runs test) whether consecutive observations suggest lack of stability in the production process. 
+b. Divide the time period into two equal parts and compare the means, using Student's / test. Do the data provide evidence of a shift in the mean level of the quality characteristics? Explain.
+
+## Solution
+## A
+**Null Hypothesis (H0)**: The data exhibit randomness, suggesting process stability.
+**Alternative Hypothesis (H1)**: The data exhibit non-randomness, suggesting lack of process stability.
+
+### Load data
+```{r}
+data <- c(68.2, 71.6, 69.3, 71.6, 70.4, 65.0, 63.6, 64.7,
+          65.3, 64.2, 67.6, 68.6, 66.8, 68.9, 66.8, 70.1)
+```
+### Identify runs
+```{r}
+up.down <- diff(data) > 0
+runs <- rle(up.down)$lengths
+n1 <- sum(runs == 1)
+n2 <- sum(runs == -1)
+```
+
+### Calculate expected and standard deviation of runs
+```{r}
+E.runs <- 2 * n1 * n2 / (n1 + n2) + 1
+Var.runs <- 2 * n1 * n2 * (n1 + n2) / ((n1 + n2)^2 * (n1 + n2 - 1))
+Z <- (sum(runs) - E.runs) / sqrt(Var.runs)
+```
+
+### Critical value (one-tailed left, 0.05 significance)
+```{r}
+z_alpha <- qnorm(0.05, mean = 0, sd = 1)
+```
+
+### Decision and Conclusion
+```{r}
+if (Z < -z_alpha) {
+  cat("Reject H0. The data suggest lack of randomness, potentially indicating instability.\n")
+} else {
+  cat("Fail to reject H0. No evidence of non-randomness is found.\n")
+}
+```
+
+## B
+**Null Hypothesis (H0)**: The mean of the data in the first half is equal to the mean in the second half.
+**Alternative Hypothesis (H1)**: The means are not equal, suggesting a shift in the mean level.
+
+### Load data
+```{r}
+data1 <- data[1:8]
+data2 <- data[9:16]
+mean1 <- mean(data1)
+mean2 <- mean(data2)
+sd1 <- sd(data1)
+sd2 <- sd(data2)
+```
+### Pooled variance
+```{r}
+pooled.var <- ((length(data1) - 1) * sd1^2 + (length(data2) - 1) * sd2^2) / (length(data1) + length(data2) - 2)
+```
+### T-statistic
+```{r}
+t <- (mean1 - mean2) / sqrt(pooled.var * (1 / (length(data1) + length(data2))))
+```
+
+### Degrees of freedom
+```{r}
+df <- length(data1) + length(data2) - 2
+```
+
+### P-value (two-tailed)
+```{r}
+p.value <- 2 * pt(abs(t), df = df, lower.tail = FALSE)
+```
+
+### Decision and Conclusion
+```{r}
+if (p.value < 0.05) {
+  cat("Reject H0. The observed difference in means between the two halves is statistically significant (p-value =", round(p.value, 4), "). This suggests a shift in the mean level of the quality characteristic.\n")
+} else {
+  cat("Fail to reject H0. No statistically significant evidence is found for a shift in the mean level (p-value =", round(p.value, 4), ").\n")
+}
+```
+# Q11
+A government economist estimates that the median cost per pound of beef is N5.00. A sample of 22 livestock buyers shows the following cost per beef. Is there enough evidence to reject the economist's hypothesis at alpha 0.10?
+
+5.35, 5.16, 4.97, 4.83, 5.05, 5.19, 4.78, 4.93, 5.00, 5.42, 4.86, 5.05, 5.13, 5.00, 5.10, 5.27, 5.06, 5.25, 4.63, 5.16, 5.19, 5.16
+
+## Solution
+**Null Hypothesis (H0)**: The median cost per pound of beef is N5.00
+**Alternative Hypothesis (H1)**: The median cost per pound of beef is not N5.00
+
+### Load data
+```{r}
+beef_cost <- c(5.35, 5.16, 4.97, 4.83, 5.05, 5.19, 4.78, 4.93, 5.00, 5.42, 
+               4.86, 5.05, 5.13, 5.00, 5.10, 5.27, 5.06, 5.25, 4.63, 5.16, 
+               5.19, 5.16)
+```
+### Calculate the sample median
+```{r}
+sample_median <- median(beef_cost)
+```
+### Determine the test
+```{r}
+shapiro.test(beef_cost)
+```
+
+### Perform one-sample Wilcoxon signed-rank test
+```{r}
+wilcox_test_result <- wilcox.test(beef_cost, mu = 5, alternative = "two.sided", exact = FALSE)
+```
+### Interpret the result
+For a significance level of alpha = 0.10, we compare the p-value to alpha.
+```{r}
+alpha <- 0.10
+p_value <- wilcox_test_result$p.value
+
+if (p_value < alpha) {
+  cat("Since the p-value (", round(p_value, 4), ") is less than the significance level (alpha =", alpha, "), we reject the null hypothesis.\n")
+} else {
+  cat("Since the p-value (", round(p_value, 4), ") is greater than the significance level (alpha =", alpha, "), we fail to reject the null hypothesis.\n")
+}
+```
+### Conclusion
+```{r}
+cat("There is not enough evidence to conclude that the median cost per pound of beef is different from N5.00 at the", alpha, "significance level.\n")
+```
+
+# Q12
+Is there a difference in weekend movie attendance based on the evening in question? Eight small-town theaters were surveyed to see how many movie patrons were in attendance on Saturday evening and Sunday evening. Is there sufficient evidence to reject the claim that there is no difference in movie attendance for Saturday and Sunday evenings? Use a 10 degree significance level.
+Theater: A, B, C, D, E, F, G, H
+Saturday: 210, 100, 150, 50, 195, 125, 120, 204
+Sunday: 165, 42, 92, 60, 172, 100, 108, 136
+
+## Solution
+**Null hypothesis (H0)**: There is no difference in movie attendance for Saturday and Sunday evenings.
+**Alternative hypothesis (H1)**: There is a difference in movie attendance for Saturday and Sunday evenings.
+
+### Load data
+```{r}
+saturday <- c(210, 100, 150, 50, 195, 125, 120, 204)
+sunday <- c(165, 42, 92, 60, 172, 100, 108, 136)
+```
+
+### Plots
+```{r}
+hist(saturday)
+hist(sunday)
+```
+
+###Assess assumptions and determine appropriate test
+#### 1. Normality assumption
+```{r}
+shapiro.test(saturday)
+shapiro.test(sunday)
+```
+### 2. Homogeneity of variances assumption
+```{r}
+var.test(saturday, sunday)
+```
+
+### Perform Test
+Based on the Shapiro-Wilk tests for normality and the Levene's test for homogeneity of variances,
+if p-values > 0.1, we fail to reject the null hypothesis of normality and homogeneity of variances, respectively.
+Therefore, we can proceed with the parametric t-test.
+However, if p-values <= 0.1, we cannot assume normality and/or homogeneity of variances, so we'll use the non-parametric Wilcoxon rank-sum test.
+```{r}
+if (shapiro.test(saturday)$p.value > 0.1 && shapiro.test(sunday)$p.value > 0.1 && var.test(saturday, sunday)$p.value > 0.1) {
+  # Perform two-sample t-test
+  t_test <- t.test(saturday, sunday, paired = FALSE, alternative = "two.sided", conf.level = 0.90)
+  
+  print(t_test)
+} else {
+  # Perform Wilcoxon rank-sum test
+  wilcox.test(saturday, sunday, alternative = "two.sided", conf.level = 0.90)
+}
+```
+
+### Decision
+To make a decision, compare the p-value to the significance level (alpha), which is 0.10 in this case.
+
+If the p-value is less than or equal to alpha (0.10), reject the null hypothesis. Otherwise, fail to reject the null hypothesis.
+
+### Conclusion
+```{r}
+alpha <- 0.10
+if (t_test$p.value <= alpha) {
+  cat("Reject the null hypothesis. There is sufficient evidence to suggest a difference in movie attendance for Saturday and Sunday evenings.\n")
+} else {
+  cat("Fail to reject the null hypothesis. There is not enough evidence to suggest a difference in movie attendance for Saturday and Sunday evenings.\n")
+}
+```
